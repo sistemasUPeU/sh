@@ -33,6 +33,10 @@ Route::PATCH('seguridad/usuario/editUsuario/{idUsuario}','UsuarioController@upda
 // SE DEBE DEJAR EL RESOURCE AL FINAL O PUEDE OCURRIR UN ERROR AL NO ENCONTRAR EL METODO *MUY IMPORTANTE*
 
 Route::resource('seguridad/usuario','UsuarioController');
+//Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
+//Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
+
+
 
 ////////////////////////////////////////////
 
@@ -49,6 +53,7 @@ Route::resource('seguridad/usuario','UsuarioController');
     Route::resource('Familia','NuevaFamiliaController');
     Route::resource('/Carnet-Familiar','CarnetFammiliarController');
     Route::resource('/Carnet-General','CarnetFammiliarController');
+    Route::resource('Sesiones/asistencia','ListarSesionesController');
   
 });
 

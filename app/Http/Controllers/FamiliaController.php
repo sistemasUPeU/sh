@@ -34,9 +34,22 @@ class FamiliaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if($request) 
+        {
+           /* $query=trim($request->get('searchText'));
+          $personas=DB::table('persona as p')
+          ->join('usuario as u','p.idPersona','=','u.Persona_idPersona')
+          ->join('rol as r','u.Rol_idRol','=','r.idRol')
+          ->join('distrito as d','p.Distrito_idDistrito','=','d.idDistrito')
+          ->select('p.idPersona','p.Nom_per','p.Apel_pater','p.Apel_mat','p.Telefono','p.DNI','r.Nom_rol','u.Nom_user','u.Estado_user','d.Nom_Dist','u.idUsuario')
+          ->where('u.Nom_user','LIKE','%'.$query.'%')
+            ->orderBy('p.idPersona','desc')
+            ->paginate(7);
+            return view('seguridad.usuario.index',["personas"=>$personas,"searchText"=>$query]);*/
+        }   
+
     }
 
     /**

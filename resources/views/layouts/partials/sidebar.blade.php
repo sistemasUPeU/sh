@@ -36,26 +36,42 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('Inicio') }}</span></a></li>
 
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Carnet Familiar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href='{{ url('Listar-Familia') }}'>Listar Familia</a></li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Registrar Nueva Familia') }}</a> </li>
+                    <li><a href="{{ url('Listar-Familia') }}">Nueva Familia</a></li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
 
 
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Evaluacion de la Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Sesiones') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Carnet general') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Asistencia Sesiones') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Datos Madre') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Datos Niños') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Asistencia') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
+                   
 
                 </ul>
 
             </li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('Asistencia Sesiones') }}</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Historial Clínico') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Control Nutricional') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Problemas Salud') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' CPN') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('Listar-Familia') }}"></a></li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' ') }}</a> </li>
+
+
+                </ul>
+            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
