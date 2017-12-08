@@ -17,26 +17,25 @@
                 </div>
             </div>
         @endif
-
-      
+ 
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('Menu') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('Inicio') }}</span></a></li>
+            <li class="active"><a href="{{ url('home') }}"><i class="glyphicon glyphicon-home"></i><span>{{ trans('Inicio') }}</span></a></li>
 
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#" ><i class="glyphicon glyphicon-user"></i> <span>{{ trans('Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Listar-Familia') }}">Nueva Familia</a></li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a></li>
 
 
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Sesiones') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#" ><i class="glyphicon glyphicon-list-alt" ></i> <span>{{ trans('Sesiones') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Asistencia') }}</a> </li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
@@ -46,7 +45,7 @@
 
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Historial Clínico') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#" ><i class="glyphicon glyphicon-edit"></i><span>{{ trans('Historial Clínico')}}</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Control Nutricional') }}</a> </li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Problemas Salud') }}</a> </li>
@@ -55,7 +54,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#" ><i class="glyphicon glyphicon-calendar"></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Listar-Familia') }}"></a></li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' ') }}</a> </li>

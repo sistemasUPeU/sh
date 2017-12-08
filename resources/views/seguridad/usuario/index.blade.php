@@ -2,13 +2,25 @@
 
 @section('main-content')
 
-  <div class="row">
-	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-		<h3>Listado de Usuarios <a href="usuario/create"><button class="btn btn-success">Nuevo</button></a></h3>
+ <div class="container" style="background-color: white;">
+  <div class="row justify-content: center">
+   
+ 
+	<div class="col-lg-6 col-md-6 col-md-offset-2">
+		<h3>Lista de trabajadores</h3>
 	    @include('seguridad.usuario.search')
 	</div>
 </div>
+ 
 
+<div class="row">
+	
+	<div class="col-md-2 col-lg-2">
+    	 <a href="usuario/create"><button class="btn btn-success"><i class=" glyphicon glyphicon-plus"></i> Nuevo</button></a>
+    </div> 
+
+</div>
+<br>
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="table-responsive">
@@ -49,9 +61,7 @@
 				<!--	<td>{{ $per->Estado_user}}</td> -->
 					<td>
 					<!-- aqui ejecuta una accion pidiendo permiso al controlador enviando la id -->
-						<a href="{{URL::action('UsuarioController@show',$per->idPersona)}}"><button class="btn btn-info">Editar</button></a>
-                         <a href="" data-target="#modal-delete-{{$per->idPersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
-					</td>
+						<a href="{{URL::action('UsuarioController@show',$per->idPersona)}}"><button class="btn btn-info"><i class="glyphicon glyphicon-th-list"></i> Editar Trabajador</button></a>
 				</tr>
 			  
 				@endforeach
@@ -61,5 +71,5 @@
 		{{$personas->render()}}
 	</div>
 </div>
-
+</div> 
 @endsection

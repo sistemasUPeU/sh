@@ -144,7 +144,7 @@ class UsuarioController extends Controller
        $usuario->Estado_user=$request->get('Estado_user');
        $usuario->Rol_idRol=$request->get('Rol_idRol');
        $usuario->update();
-       return Redirect::to('seguridad/usuario');
+       return Redirect::to('seguridad/usuario/'.$usuario->Persona_idPersona);
     }
 
 
@@ -163,20 +163,13 @@ class UsuarioController extends Controller
         $persona->Direccion=$request->get('Direccion');
         $persona->Telefono=$request->get('Telefono');
         $persona->update();
-        return Redirect::to('seguridad/usuario');
+        return Redirect::to('seguridad/usuario/'.$id);
     }
 
 
-
-    public function destroy($id)
+   public function destroy($id)
     {
-        
+        $usuario = DB::table('usuario')->where('idUsuario', '=', $id)->delete();
         return Redirect::to('seguridad/usuario');
     }
-
-
-
-
-
-
 }

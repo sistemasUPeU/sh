@@ -1,176 +1,155 @@
 @extends ('layouts.app')
 
 @section('main-content')
-    
-<div class="container">
-    <div class="row">
-    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-      <h3>Informacion del Trabajador {{$trabajadores->Nom_per.' '.$trabajadores->Apel_pater.' '.$trabajadores->Apel_mat}}</h3>
-      @if (count($errors)>0)
-      <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-        @endforeach
-        </ul>
-      </div>
-      @endif
-</div>
- </div>
-
-<div class="row form-group">
-<div class="col-lg-11 p-3 mb-2 bg-primary text-white">DATOS GENERALES</div>
-</div>
-
-
-
-
-<div class="row">
-  <div  class="col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Nombre</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" hidden value="{{$trabajadores->idPersona}}" disabled>
-                  <input type="text" class="form-group"  value="{{$trabajadores->Nom_per}}" disabled>
-                </div>
-                </div>
-           </div>
-
-          <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Apellido Paterno</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" value="{{$trabajadores->Apel_pater}}" disabled>
-                </div>
-                </div>
-           </div>
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Apellido Materno</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group"  value="{{$trabajadores->Apel_mat}}" disabled>
-                </div>
-                </div>
-           </div>
-           
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Telefono</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" value="{{$trabajadores->Telefono}}" disabled>
-                </div>
-                </div>
-           </div>
-
-           <div  class="col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">DNI</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" value="{{$trabajadores->DNI}}" disabled>
-                </div>
-                </div>
-           </div>
-
-          <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Fecha de Nacimiento A-M-D</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group"  value="{{$trabajadores->Fecha_nac}}" disabled>
-                </div>
-                </div>
-           </div>
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Sexo</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group"  value="{{$trabajadores->Sexo}}" disabled>
-                </div>
-                </div>
-           </div>
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Distrito</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" value="{{$trabajadores->Nom_Dist}}" disabled>
-                </div>
-                </div>
-           </div>
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Direccion</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group" value="{{$trabajadores->Direccion}}" disabled>
-                </div>
-                </div>
-           </div>
-
-
-
-          <div class="form-group">
-                <a href="{{URL::action('UsuarioController@editPersona',$trabajadores->idPersona)}}"><button class="btn btn-info">Editar Persona</button></a>
-          </div>
-      </div>
-
-
-
-
-
-
-<div class="row form-group">
-<div class="col-lg-11  p-3 mb-2 bg-primary text-white">DATOS DEL USUARIO</div>
-</div>
-
-
-
-
-
-<div class="row">
-              
-  
-           <div  class="col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Nombre de Usuario</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group"  value="{{$trabajadores->Nom_user}}" disabled>
-                </div>
-                </div>
-           </div>
-
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Estado del Usuario</label>
-                  <div class="col-md-12">
-                  
-                    <?php if ($trabajadores->Estado_user == '1'): ?>
-                    <input type="text" class="form-group"  value="Activo" disabled> 
-                    <?php else: ?>
-                    <input type="text" class="form-group"  value="Desactivo" disabled>  
-                    <?php endif ?>
-                 </div>
-                </div>
-           </div>
-
-           <div  class="col-lg-4 col-sm-4 col-md-4 col-xs-12 form-group">
-                 <div class="form-group">
-                  <label for="proveedor" class="col-md-12 control-label">Rol del Usuario</label>
-                  <div class="col-md-12">
-                  <input type="text" class="form-group"  value="{{$trabajadores->Nom_rol}}" disabled>
-                </div>
-                </div>
-           </div>
-
-
-          <div class="form-group">
-               <a href="{{URL::action('UsuarioController@editUsuario',$trabajadores->idUsuario)}}"><button class="btn btn-info">Editar Usuario</button></a>
-          </div>
-</div>
-
  
+ 
+    <div class="main-panel" >
 
-</div>
+        <div class="content"  >
+            <div class="container-fluid">
+
+                <div class="row">
+
+
+                    <div class="col-lg-4 col-md-5">
+
+                        <div class="card card-user" style="background-color: white;">
+                            <div class="content">
+                                <div class="author col-lg-8 col-md-offset-2">
+                                  <img class="img-responsive center-block" src="{{asset('/img/avatar-user.png')}}"/>
+
+                                </div>
+                              
+                            </div>
+ 
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="text" class="form-control text-center"  value="{{$trabajadores->Nom_user}}" disabled>
+                                            </div>
+                                        </div>
+                                      <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Estado</label>
+                                                 <?php if ($trabajadores->Estado_user == '1'): ?>
+                    <input type="text" class="form-control text-center"  value="Activo" disabled> 
+                    <?php else: ?>
+                    <input type="text" class="form-control text-center"  value="Desactivo" disabled>  
+                    <?php endif ?>
+                                            </div>
+                                        </div>
+                                   <div class="col-md-6 col-md-offset-3">
+                                            <div class="form-group">
+                                                <label>Rol</label>
+                                                 <input type="text" class="form-control text-center"  value="{{$trabajadores->Nom_rol}}" disabled>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <div class="text-center">
+                                       <a href="{{URL::action('UsuarioController@editUsuario',$trabajadores->idUsuario)}}"><button class="btn btn-info">Editar Usuario</button></a>
+                                    </div>
+                                         <br>
+                            </div>
+                        </div>
+  
+                    </div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card" style="background-color: white;">
+                            <div class="col-md-6 col-md-offset-4">
+                                <h4 class="title">Datos Generales</h4>
+                            </div>
+                            <div class="content">
+                             
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>DNI</label>
+                                                <input type="text" class="form-control" value="{{$trabajadores->DNI}}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                 <input type="text" class="form-control"  value="{{$trabajadores->Nom_per}}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label >Telefono</label>
+                                                <input type="text" class="form-control" value="{{$trabajadores->Telefono}}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido Paterno</label>
+                                               <input type="text" class="form-control" value="{{$trabajadores->Apel_pater}}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido Materno</label>
+                                                <input type="text" class="form-control"  value="{{$trabajadores->Apel_mat}}" disabled >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Direccion</label>
+                                                 <input type="text" class="form-control border-input" value="{{$trabajadores->Direccion}}" disabled>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Distrito</label>
+                                                 <input type="text" class="form-control" value="{{$trabajadores->Nom_Dist}}" disabled>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <input type="text" class="form-control"  value="{{$trabajadores->Sexo}}" disabled>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento A-M-D</label>
+                                                 <input type="text" class="form-control"  value="{{$trabajadores->Fecha_nac}}" disabled>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                       <a href="{{URL::action('UsuarioController@editPersona',$trabajadores->idPersona)}}"><button class="btn btn-info">Editar Persona</button></a>
+<!--
+                                        <a href="" data-target="#modal-delete-{{$trabajadores->idPersona}}" data-toggle="modal"><button class="btn btn-danger">Editar</button></a> -->
+                                    </div>
+
+                            @include('seguridad.usuario.modal')
+                              
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ 
 @endsection
