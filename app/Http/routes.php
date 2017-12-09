@@ -26,10 +26,9 @@ Route::group(['middleware' =>['auth','is_director']], function (){
 
 //////////////////////////////////////////// !!!! MODULO DE JEFE - CREATE,STORE,SHOW,EDIT,DESTROY DE USUARIOS
 
-Route::get('seguridad/usuario/{idPersona}/editPersona','UsuarioController@editPersona');
-Route::get('seguridad/usuario/{idUsuario}/editUsuario','UsuarioController@editUsuario');
-Route::PATCH('seguridad/usuario/editPersona/{idPersona}','UsuarioController@updatePersona')->name('seguridad.usuario.updatePersona');
-Route::PATCH('seguridad/usuario/editUsuario/{idUsuario}','UsuarioController@updateUsuario')->name('seguridad.usuario.updateUsuario');
+ 
+Route::PATCH('seguridad/usuario/editPersona/{idPersona}','UsuarioController@updatePersona');
+Route::PATCH('seguridad/usuario/editUsuario/{idUsuario}','UsuarioController@updateUsuario');
 // SE DEBE DEJAR EL RESOURCE AL FINAL O PUEDE OCURRIR UN ERROR AL NO ENCONTRAR EL METODO *MUY IMPORTANTE*
 
 Route::resource('seguridad/usuario','UsuarioController');

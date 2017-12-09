@@ -1,147 +1,119 @@
-@extends ('layouts.app')
-@section('main-content')
-	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Persona: {{ $persona->idPersona }}</h3>
-			@if (count($errors)>0)
-			<div class="alert alert-danger">
-				<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{$error}}</li>
-				@endforeach
-				</ul>
+<div class="modal fade modal-slide-in-right" aria-hidden="true"
+role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
+
+
+	{{Form::Open(array('action'=>array('UsuarioController@updatePersona',$trabajadores->idPersona),'method'=>'patch'))}}
+
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+				aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">{{$trabajadores->Nom_per.' '.$trabajadores->Apel_pater.' '.$trabajadores->Apel_mat}}</h4>
 			</div>
-			@endif
 
+<div class="modal-body">
+ 
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>DNI</label>
+                                                <input type="text" class="form-control"  name="DNI" value="{{$trabajadores->DNI}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                 <input type="text" class="form-control" name="Nom_per"  value="{{$trabajadores->Nom_per}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label >Telefono</label>
+                                                <input type="text" class="form-control" name="Telefono" value="{{$trabajadores->Telefono}}">
+                                            </div>
+                                        </div>
+                                    </div>
 
-           
-            {!!Form::model($persona,['method'=>'PATCH','route'=>['seguridad.usuario.updatePersona',$persona->idPersona]])!!}
-             
-            
-            {{Form::token()}}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido Paterno</label>
+                                               <input type="text" class="form-control" name="Apel_pater"  value="{{$trabajadores->Apel_pater}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido Materno</label>
+                                                <input type="text" class="form-control" name="Apel_mat"  value="{{$trabajadores->Apel_mat}}" >
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Direccion</label>
+                                                 <input type="text" name="Direccion" class="form-control border-input" value="{{$trabajadores->Direccion}}">
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="form-group{{ $errors->has('Nom_per') ? ' has-error' : '' }}">
-                            <label for="Nom_per" class="col-md-4 control-label">Nombre</label>
+                         
 
-                            <div class="col-md-6">
-                                <input id="Nom_per" type="text" class="form-control" name="Nom_per" value="{{$persona->Nom_per}}">
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="form-group{{ $errors->has('Apel_pater') ? ' has-error' : '' }}">
-                            <label for="Apel_pater" class="col-md-4 control-label">Apellido Paterno</label>
-
-                            <div class="col-md-6">
-                                <input id="Apel_pater" type="text" class="form-control" name="Apel_pater" value="{{$persona->Apel_pater}}">
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="form-group{{ $errors->has('Apel_mat') ? ' has-error' : '' }}">
-                            <label for="Apel_mat" class="col-md-4 control-label">Apellido Materno</label>
-
-                            <div class="col-md-6">
-                                <input id="Apel_mat" type="text" class="form-control" name="Apel_mat" value="{{$persona->Apel_mat}}">            
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="form-group{{ $errors->has('DNI') ? ' has-error' : '' }}">
-                            <label for="DNI" class="col-md-4 control-label">N° DNI</label>
-
-                            <div class="col-md-6">
-                                <input id="DNI" type="text" class="form-control" name="DNI" value="{{$persona->DNI}}">
-                            </div>
-                        </div>
-   
-   
-
-
-
-                          <div class="form-group{{ $errors->has('Fecha_nac') ? ' has-error' : '' }}">
-                            <label for="Fecha_nac" class="col-md-4 control-label">Fecha de Nacimiento</label>
-
-                            <div class="col-md-6">
-                                <input id="Fecha_nac" type="date" class="form-control" name="Fecha_nac" value="{{$persona->Fecha_nac}}">
-                            </div>
-                        </div>
-
-                        
-                     <div class="form-group">
-                     <label for="Sexo" class="col-md-4 control-label">Sexo</label>
-                     <div class="col-md-6">
-                      
-                     <select name="Sexo" class="form-control"> 
-                          
-                         <?php if ($persona->Sexo == 'Masculino'): ?>
-                          <option value="Masculino" selected="">Masculino</option>
-                          <option value="Femenino">Femenino</option>  
-
-                          <?php elseif ($persona->Sexo == 'Femenino'): ?>
-                           <option value="Femenino" selected="">Femenino</option>
-                           <option value="Masculino">Masculino</option>
-
-                          <?php endif ?> 
-                    </select>
-                    </div>
-
-                   </div>
-           
-
-
-
-                    <div class="form-group">
-                     <label for="Distrito_idDistrito" class="col-md-4 control-label">Distrito</label>
-                     <div class="col-md-6">
-                      
-                     <select name="Distrito_idDistrito" class="form-control"> 
-                      
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Distrito</label>
+                                                  <select name="Distrito_idDistrito" class="form-control"> 
                          @foreach($distritos as $dis)
                          <option value="{{$dis->idDistrito}}">{{$dis->Nom_Dist}}</option>
                          @endforeach
 
                     </select>
-                    </div>
-                    </div>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <select name="Sexo" class="form-control"> 
+                          
+                         <?php if ($trabajadores->Sexo == 'Masculino'): ?>
+                          <option value="Masculino" selected="">Masculino</option>
+                          <option value="Femenino">Femenino</option>  
+
+                          <?php elseif ($trabajadores->Sexo == 'Femenino'): ?>
+                           <option value="Femenino" selected="">Femenino</option>
+                           <option value="Masculino">Masculino</option>
+
+                          <?php endif ?> 
+                    </select>
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento</label>
+                                                  <input id="Fecha_nac" type="date" class="form-control" name="Fecha_nac" value="{{$trabajadores->Fecha_nac}}">
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+ 
 
 
-                        <div class="form-group{{ $errors->has('Direccion') ? ' has-error' : '' }}">
-                            <label for="Direccion" class="col-md-4 control-label">Direccion</label>
 
-                            <div class="col-md-6">
-                                <input id="Direccion" type="text" class="form-control" name="Direccion" value="{{$persona->Direccion}}">
-                            </div>
-                        </div>
-
-
-
-                        <div class="form-group{{ $errors->has('Telefono') ? ' has-error' : '' }}">
-                            <label for="Telefono" class="col-md-4 control-label">Telefono</label>
-
-                            <div class="col-md-6">
-                                <input id="Telefono" type="text" class="form-control" name="Telefono" value="{{$persona->Telefono}}">
-                            </div>
-                        </div>
-
-
-                        
-
-               <div class="form-group">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
             </div>
-
-            {!!Form::close()!!}
-           
-		</div>
-	</div>
-@endsection	
+ 
+</div>			
+</div>
+{{Form::Close()}}
+</div>

@@ -8,10 +8,10 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
+                    <img src="{{asset('/img/avatar-user.png')}}"/>
                 </div>
                 <div class="pull-left info">
-                    <p>{{ Auth::user()->name }}</p>
+                    <p>{{ Auth::user()->Nom_user}}</p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
                 </div>
@@ -28,12 +28,27 @@
             <li class="treeview">
                 <a href="#" ><i class="glyphicon glyphicon-user"></i> <span>{{ trans('Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('Listar-Familia') }}">Nueva Familia</a></li>
+                    <li><a href="{{ url('Listar-Familia') }}">{{ trans('Nueva Familia') }}</a></li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a></li>
 
 
                 </ul>
             </li>
+
+@if(Auth::user()->Rol_idRol == 3)
+ 
+            <li class="treeview">
+                <a href="#" ><i class="glyphicon glyphicon-user"></i> <span>{{ trans('Seguridad') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('seguridad/usuario') }}">{{ trans('Trabajadores') }}</a></li>
+                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans('Desactivos') }}</a></li>
+
+
+                </ul>
+            </li>
+
+@endif
+
             <li class="treeview">
                 <a href="#" ><i class="glyphicon glyphicon-list-alt" ></i> <span>{{ trans('Sesiones') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">

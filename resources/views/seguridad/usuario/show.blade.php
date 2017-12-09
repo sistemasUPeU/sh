@@ -5,23 +5,18 @@
  
     <div class="main-panel" >
 
-        <div class="content"  >
+        
             <div class="container-fluid">
 
-                <div class="row">
-
-
+          
+<div class="row">
+<div class="content">
                     <div class="col-lg-4 col-md-5">
 
                         <div class="card card-user" style="background-color: white;">
-                            <div class="content">
-                                <div class="author col-lg-8 col-md-offset-2">
-                                  <img class="img-responsive center-block" src="{{asset('/img/avatar-user.png')}}"/>
-
-                                </div>
-                              
-                            </div>
- 
+                                <div class="author col-md-8 col-md-offset-2">
+                                  <img class="img-responsive" src="{{asset('/img/avatar-user.png')}}"/>
+                              </div> 
                             <div class="text-center">
                                 <div class="row">
                                     <div class="col-md-5 col-md-offset-1">
@@ -47,16 +42,20 @@
                                             </div>
                                         </div>
                                 </div>
-
-                                <div class="text-center">
-                                       <a href="{{URL::action('UsuarioController@editUsuario',$trabajadores->idUsuario)}}"><button class="btn btn-info">Editar Usuario</button></a>
+                                <div class="text-center">                                     
+<a  data-target="#modal-editUsuario-{{$trabajadores->idUsuario}}" data-toggle="modal"><button class="btn btn-success">Editar usuario {{$trabajadores->Nom_user}} </button></a>
                                     </div>
-                                         <br>
-                            </div>
+ <br>
+
+ 
+                            </div>  
+@include('seguridad.usuario.editUsuario') 
                         </div>
-  
                     </div>
-                    <div class="col-lg-8 col-md-7">
+                </div>
+
+
+<div class="col-lg-8 col-md-7">
                         <div class="card" style="background-color: white;">
                             <div class="col-md-6 col-md-offset-4">
                                 <h4 class="title">Datos Generales</h4>
@@ -134,22 +133,19 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                       <a href="{{URL::action('UsuarioController@editPersona',$trabajadores->idPersona)}}"><button class="btn btn-info">Editar Persona</button></a>
-<!--
-                                        <a href="" data-target="#modal-delete-{{$trabajadores->idPersona}}" data-toggle="modal"><button class="btn btn-danger">Editar</button></a> -->
+                                       
+
+                                        <a data-target="#modal-editPersona-{{$trabajadores->idPersona}}" data-toggle="modal"><button class="btn btn-success">Editar datos de {{$trabajadores->Nom_per}} </button></a>
                                     </div>
 
-                            @include('seguridad.usuario.modal')
+                            @include('seguridad.usuario.editPersona')
                               
                             </div>
                         </div>
                     </div>
 
 
-                </div>
-            </div>
-        </div>
- 
-    </div>
- 
+                    </div>
+
+            </div></div>
 @endsection

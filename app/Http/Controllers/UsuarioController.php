@@ -113,30 +113,14 @@ class UsuarioController extends Controller
         ->select('p.idPersona','p.Nom_per','p.Apel_pater','p.Apel_mat','p.Telefono','p.DNI','p.Fecha_nac','p.Sexo','r.Nom_rol','p.Direccion','u.Nom_user','u.Estado_user','d.Nom_Dist','u.idUsuario')
         ->where('p.idPersona','=',$id)
         ->first();
+        
+        $roles=DB::table('rol')->get();  
+        $distritos=DB::table('distrito')->get();
 
-          return view("seguridad.usuario.show",["trabajadores"=>$trabajadores]);
+          return view("seguridad.usuario.show",["trabajadores"=>$trabajadores,"roles"=>$roles,"distritos"=>$distritos]);
     }
 
-
-
-
-
-    public function editUsuario($id)
-    {
-    $roles=DB::table('rol')->get();  
-    return view("seguridad.usuario.editUsuario",["usuario"=>User::findOrFail($id),"roles"=>$roles]);
-    }
-
-
-    public function editPersona($id)
-    {
-    $distritos=DB::table('distrito')->get();  
-    return view("seguridad.usuario.editPersona",["persona"=>Persona::findOrFail($id),"distritos"=>$distritos]);
-    }
-
-
-
-
+ 
     public function updateUsuario(EditUsuarioFormRequest $request,$id)
     {          
        $usuario=User::findOrFail($id); 
@@ -166,10 +150,5 @@ class UsuarioController extends Controller
         return Redirect::to('seguridad/usuario/'.$id);
     }
 
-
-   public function destroy($id)
-    {
-        $usuario = DB::table('usuario')->where('idUsuario', '=', $id)->delete();
-        return Redirect::to('seguridad/usuario');
-    }
+ 
 }
