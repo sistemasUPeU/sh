@@ -18,10 +18,10 @@ class FamiliaController extends Controller
         if ($request)
         {
             $query=trim($request->get('searchText'));
-            $familia=DB::table('carnetfamiliar')
-                ->where('familia','LIKE','%', $query,'%')
-                ->orderBy('idCarnetFamiliar','desc')
-                ->paginate(13);
+            $familia=DB::table('familia')
+                ->where('Nom_fam','LIKE','%', $query,'%')
+                ->orderBy('idFamilia','desc')
+                ->paginate(6);
             return view('Familia.Listar-Familia',["familia"=>$familia,"searchText"=>$query]);
 
         }

@@ -6,8 +6,7 @@
 
 
 @section('main-content')
-    <div class="container spark-screen">
-        <div class="row">
+   <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Lista de todas las familias </div>
@@ -38,32 +37,25 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Codigo</th>
                                 <th>Familia</th>
-                                <th>paterno</th>
-                                <th>materno</th>
-                                <th>nombre</th>
-                                <th>direccion</th>
-                                <th>HC</th>
-                                <th>Dni</th>
-                                <th>estado</th>
-
+                                <th>Responsable</th>
+                                <th>TIPO</th>
+                                <th>Captación</th>
+                                <th>Programa</th> 
+        
                             </tr>
                             </thead>
 
                             <tbody>
                             @foreach ($familia as $usu)
                             <tr>
-                                <td>{{ $usu->idCarnetFamiliar}}</td>
-                                <td>{{ $usu->num_familiabeneficiada}}</td>
-                                <td>{{ $usu->familia}}</td>
-                                <td>{{ $usu->ape_paterno}}</td>
-                                <td>{{ $usu->ape_materno}}</td>
-                                <td>{{ $usu->nombres}}</td>
-                                <td>{{ $usu->direccion}}</td>
-                                <td>{{ $usu->historial_cli}}</td>
-                                <td>{{ $usu->dni}}</td>
-                                <td>{{ $usu->estado}}</td>
+                                <td>{{ $usu->idFamilia}}</td>
+                                <td>{{ $usu->Nom_fam}}</td>
+                                <td>{{ $usu->Respons_fam}}</td>
+                                <td>{{ $usu->Tipo_Familia_idTipo_Familia}}</td>
+                                <td>{{ $usu->Modo_Captacion_idModo_Captacion}}</td>
+                                <td>{{ $usu->Programa_idPrograma}}</td>
+                                
 
 
                                 <td>
@@ -74,20 +66,17 @@
 
                                 </td>
                             </tr>
+                               </tbody>
+                        </table>
+                
                             @endforeach
 
-
-
-
-
-                        </table>
                     </div>
-                    <!-- <a href="" data-target="#modal-delete-" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a> <!-- /.box-body                     hasta aqui -->
-
                 </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        
 @endsection
