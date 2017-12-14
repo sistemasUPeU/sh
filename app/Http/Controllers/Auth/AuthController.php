@@ -86,7 +86,7 @@ class AuthController extends Controller
      
      switch (auth()->User()->Rol_idRol) {
          case '1':
-            return '/administrador/reporte';
+            return '/sesiones/asistencia';
             break;
 
          case '2':

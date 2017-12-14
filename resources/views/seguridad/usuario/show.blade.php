@@ -11,9 +11,9 @@
           
 <div class="row">
 <div class="content">
-                    <div class="col-lg-4 col-md-5">
+                    <div class="col-lg-4 col-md-5 f-b">
 
-                        <div class="card card-user" style="background-color: white;">
+                        <div class="card card-user">
                                 <div class="author col-md-8 col-md-offset-2">
                                   <img class="img-responsive" src="{{asset('/img/avatar-user.png')}}"/>
                               </div> 
@@ -56,7 +56,7 @@
 
 
 <div class="col-lg-8 col-md-7">
-                        <div class="card" style="background-color: white;">
+                        <div class="card f-b">
                             <div class="col-md-6 col-md-offset-4">
                                 <h4 class="title">Datos Generales</h4>
                             </div>

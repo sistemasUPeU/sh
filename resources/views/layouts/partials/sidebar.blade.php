@@ -30,17 +30,15 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Listar-Familia') }}">{{ trans('Nueva Familia') }}</a></li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a></li>
-
-
                 </ul>
             </li>
 
 @if(Auth::user()->Rol_idRol == 3)
  
             <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-user"></i> <span>{{ trans('Seguridad') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#" ><i class="glyphicon glyphicon-folder-close"></i> <span>{{ trans('Trabajadores') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('seguridad/usuario') }}">{{ trans('Trabajadores') }}</a></li>
+                    <li><a href="{{ url('seguridad/usuario') }}">{{ trans('Lista de trabajadores') }}</a></li>
                     <li><a href="{{ url('Nueva-Familia') }}">{{ trans('Desactivos') }}</a></li>
 
 

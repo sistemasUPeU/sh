@@ -6,6 +6,9 @@
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 
+<script src="{{ asset('/js/responsive-calendar.js') }}" type="text/javascript"></script>
+
+
 
 <script src="{{ asset('/js/bootstrap-select.min.js') }}" type="text/javascript"></script>
 

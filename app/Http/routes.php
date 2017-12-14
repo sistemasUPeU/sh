@@ -15,7 +15,7 @@ Route::auth();
 
 
 Route::group(['middleware' =>['auth','is_admin']], function (){
-
+Route::resource('sesiones/asistencia','SesionesController');
 
 });
 
