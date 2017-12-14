@@ -20,7 +20,7 @@
                             </div>
                             <div class="box-body">
                                 <!-- Split button -->
-                                <p>Evaluacion de la familia <h> <a> Castro Vasquez</a></h></p>
+                                <p>Evaluacion de la familia <h> <a> SELECTED </a></h></p>
 
                                 <div class="margin">
                                     <div class="btn-group">
