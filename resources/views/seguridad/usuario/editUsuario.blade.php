@@ -70,5 +70,4 @@ role="dialog" tabindex="-1" id="modal-editUsuario-{{$trabajadores->idUsuario}}">
 </div>
 {{Form::Close()}}
 </div>
-
- 
+</div>

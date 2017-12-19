@@ -4,7 +4,7 @@ namespace sisHospital\Http\Requests;
 
 use sisHospital\Http\Requests\Request;
 
-class LitarSesionesRquest extends Request
+class FechaSesionesFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class LitarSesionesRquest extends Request
     public function rules()
     {
         return [
-            //
+          'Fecha'=>'required',
         ];
     }
 }

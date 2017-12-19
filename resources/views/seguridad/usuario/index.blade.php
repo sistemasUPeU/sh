@@ -58,10 +58,11 @@
 
 
 
-				<!--	<td>{{ $per->Estado_user}}</td> -->
+		
 					<td>
 					<!-- aqui ejecuta una accion pidiendo permiso al controlador enviando la id -->
 						<a href="{{URL::action('UsuarioController@show',$per->idPersona)}}"><button class="btn btn-info"><i class="glyphicon glyphicon-th-list"></i> Editar Trabajador</button></a>
+					</td>	
 				</tr>
 			  
 				@endforeach

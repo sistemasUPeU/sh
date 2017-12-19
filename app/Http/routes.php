@@ -15,6 +15,9 @@ Route::auth();
 
 
 Route::group(['middleware' =>['auth','is_admin']], function (){
+
+Route::POST('sesiones/asistencia/crearFecha','SesionesController@crearFecha');
+Route::POST('sesiones/asistencia/crearSesiones','SesionesController@crearSesiones');
 Route::resource('sesiones/asistencia','SesionesController');
 
 });

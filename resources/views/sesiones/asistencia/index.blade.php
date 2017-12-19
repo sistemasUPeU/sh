@@ -4,43 +4,32 @@
 
 <div class="main-panel" >
 
-        
+
             <div class="container-fluid">
 
  <div class="row">
 
 
-                    <div class="col-lg-4 col-md-5  form-group">
-
-                        <div class="card card-user f-b">
-                                <div class="col-md-8 col-md-offset-2">
-                               
+                    <div class="col-lg-4 col-md-5">
+                    <div class="col-md-8 col-md-offset-2  f-b">
 <br>
-    
-          <div class="input-group date" data-provide="datepicker">
-    <input type="date" class="form-control"><button class="btn btn-primary">Agregar</button>
-   
+
+ <div class="text-center form-group pull-left">
+<a  data-target="#modal-crear-sesiones-sesiones" data-toggle="modal"><button class="btn btn-success"><i class="glyphicon glyphicon-list-alt"></i> Crear Sesiones</button></a>
 </div>
 
+<div class="text-center form-group pull-left">
+<a  data-target="#modal-crear-fecha-sesiones" data-toggle="modal"><button class="btn btn-success "><i class="glyphicon glyphicon-calendar"></i> Crear Fechas</button></a>
+</div>
 
-<br>
-
-                              </div> 
-                            <div class="text-center">
-                                <div class="row">
-                                     
-                            
+ </div>
                                 </div>
-                              </div>
-                            </div>
+@include('sesiones.asistencia.crearSesiones')
+@include('sesiones.asistencia.crearFecha')
 
 
 
-                          </div>
-
-
-
-<div class="responsive-calendar col-lg-8 col-md-12">
+                               <div class="responsive-calendar col-lg-8 col-md-12">
 
    <div class="card f-b content">
         <div class="controls">
@@ -59,21 +48,21 @@
           <div class="day header">Dom</div>
         </div>
         <div class="days" data-group="days">
-          
+
         </div>
-       
-</div>
 
 </div>
 
+</div>
 
-      
+
+
 </div>
 
 </div>
 </div>
 
-<?php $now = new \DateTime(); ?>
+<?php $now = new \DateTime();?>
 
 @push ('scripts')
 
@@ -82,10 +71,13 @@
         $(".responsive-calendar").responsiveCalendar({
           time: '<?php echo $now->format('Y-m'); ?>',
           events: {
-            "<?php echo $now->format('Y-m-d'); ?>": {"number": 'Prevenir enfermedades', "url": "http://w3widgets.com/responsive-slider"},
-            "2013-04-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2013-05-03":{"number": 1}, 
-            "2013-06-12": {}}
+             @foreach ($sesiones as $ses)
+
+            "{{ $ses->Fecha}}": {"number":'{{ $ses->Nom_sesion}}', "url": "{{ $ses->idFecha}}"},
+
+@endforeach
+
+            }
         });
       });
     </script>

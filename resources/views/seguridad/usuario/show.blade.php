@@ -52,7 +52,7 @@
 @include('seguridad.usuario.editUsuario') 
                         </div>
                     </div>
-                </div>
+               
 
 
 <div class="col-lg-8 col-md-7">
@@ -148,4 +148,5 @@
                     </div>
 
             </div></div>
+             </div>
 @endsection

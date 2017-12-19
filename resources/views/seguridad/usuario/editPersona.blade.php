@@ -2,21 +2,21 @@
 role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
 
 
-	{{Form::Open(array('action'=>array('UsuarioController@updatePersona',$trabajadores->idPersona),'method'=>'patch'))}}
+    {{Form::Open(array('action'=>array('UsuarioController@updatePersona',$trabajadores->idPersona),'method'=>'patch'))}}
 
 
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" 
-				aria-label="Close">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
                      <span aria-hidden="true">×</span>
                 </button>
                 <h4 class="modal-title">{{$trabajadores->Nom_per.' '.$trabajadores->Apel_pater.' '.$trabajadores->Apel_mat}}</h4>
-			</div>
+            </div>
 
 <div class="modal-body">
- 
+
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
@@ -24,7 +24,7 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                                 <input type="text" class="form-control"  name="DNI" value="{{$trabajadores->DNI}}">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                          <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Nombre</label>
                                                  <input type="text" class="form-control" name="Nom_per"  value="{{$trabajadores->Nom_per}}">
@@ -53,58 +53,58 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                                                                                    <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Direccion</label>
                                                  <input type="text" name="Direccion" class="form-control border-input" value="{{$trabajadores->Direccion}}">
-                                              
+
                                             </div>
                                         </div>
                                     </div>
 
-                         
+
 
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Distrito</label>
-                                                  <select name="Distrito_idDistrito" class="form-control"> 
+                                                  <select name="Distrito_idDistrito" class="form-control">
                          @foreach($distritos as $dis)
                          <option value="{{$dis->idDistrito}}">{{$dis->Nom_Dist}}</option>
                          @endforeach
 
                     </select>
-                                              
+
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Sexo</label>
-                                                <select name="Sexo" class="form-control"> 
-                          
+                                                <select name="Sexo" class="form-control">
+
                          <?php if ($trabajadores->Sexo == 'Masculino'): ?>
                           <option value="Masculino" selected="">Masculino</option>
-                          <option value="Femenino">Femenino</option>  
+                          <option value="Femenino">Femenino</option>
 
                           <?php elseif ($trabajadores->Sexo == 'Femenino'): ?>
                            <option value="Femenino" selected="">Femenino</option>
                            <option value="Masculino">Masculino</option>
 
-                          <?php endif ?> 
+                          <?php endif?>
                     </select>
-                                              
+
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Fecha de nacimiento</label>
                                                   <input id="Fecha_nac" type="date" class="form-control" name="Fecha_nac" value="{{$trabajadores->Fecha_nac}}">
-                                              
+
                                             </div>
                                         </div>
                                     </div>
- 
+
 
 
 
@@ -112,8 +112,9 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Confirmar</button>
             </div>
- 
-</div>			
+
+</div>
 </div>
 {{Form::Close()}}
+</div>
 </div>

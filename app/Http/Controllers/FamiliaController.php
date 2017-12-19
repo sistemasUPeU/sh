@@ -1,11 +1,8 @@
 <?php
-
 namespace sisHospital\Http\Controllers;
-
 use Illuminate\Http\Request;
 use DB;
 use sisHospital\Http\Requests;
-
 class FamiliaController extends Controller
 {
     /**
@@ -23,12 +20,9 @@ class FamiliaController extends Controller
                 ->orderBy('idFamilia','desc')
                 ->paginate(6);
             return view('Familia.Listar-Familia',["familia"=>$familia,"searchText"=>$query]);
-
         }
-
         //return view('Familia/Listar-Familia');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -49,9 +43,7 @@ class FamiliaController extends Controller
             ->paginate(7);
             return view('seguridad.usuario.index',["personas"=>$personas,"searchText"=>$query]);*/
         }   
-
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -62,7 +54,6 @@ class FamiliaController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -73,7 +64,6 @@ class FamiliaController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,7 +74,6 @@ class FamiliaController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -96,7 +85,6 @@ class FamiliaController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -110,6 +98,4 @@ class FamiliaController extends Controller
     public  function  listarfamilia(){
         //
     }
-
-
 }
