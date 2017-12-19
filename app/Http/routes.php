@@ -59,4 +59,5 @@ Route::resource('seguridad/usuario','UsuarioController');
   
 });
 
- 
+ /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
+ Route::resource('/Evaluar','EvaluarController');

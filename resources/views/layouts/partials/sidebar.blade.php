@@ -67,13 +67,8 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-calendar"></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('Listar-Familia') }}"></a></li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' ') }}</a> </li>
-
-
-                </ul>
+                <a href="{{ url('Evaluar') }}"" ><i class="glyphicon glyphicon-calendar"></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                
             </li>
         </ul><!-- /.sidebar-menu -->
     </section>
