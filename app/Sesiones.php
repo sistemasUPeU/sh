@@ -18,7 +18,7 @@ class Sesiones extends Model
 /*paso 4 - indicar las tablas de la base de datos al modelo*/
 
    protected $fillable = [
-      'Tipo_sesion',
+      'Tipo_Sesiones_idTipo_Sesiones',
       'Nom_sesion',
       
    ];

@@ -29,8 +29,8 @@ role="dialog" tabindex="-1" id="modal-crear-fecha-sesiones">
                                                 <label>Tipo de sesion</label>
                                                <select name="Sesiones_idSesiones" class="form-control"> 
                       
-                         @foreach($tipo as $t)
-                         <option value="{{$t->idSesiones}}">{{$t->Tipo_sesion}}</option>
+                         @foreach($nombresesion as $n)
+                         <option value="{{$n->idSesiones}}">{{$n->Nom_sesion}}</option>
                          @endforeach
 
                     </select>

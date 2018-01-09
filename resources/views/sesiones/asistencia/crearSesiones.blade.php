@@ -21,7 +21,17 @@ role="dialog" tabindex="-1" id="modal-crear-sesiones-sesiones">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tipo de sesion</label>
-                                                <input type="text" name="Tipo_sesion" class="form-control">
+                                                 
+
+                                                <select name="Tipo_Sesiones_idTipo_Sesiones" class="form-control"> 
+                      
+                         @foreach($tipo as $t)
+                         <option value="{{$t->idTipo_Sesiones}}">{{$t->Nom_tipo_ses}}</option>
+                         @endforeach
+
+                    </select>
+
+
                                             </div>
                                         </div>
                                         <div class="col-md-6">

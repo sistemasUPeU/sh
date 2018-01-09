@@ -24,7 +24,7 @@ class SesionesFormRequest extends Request
     public function rules()
     {
         return [
-              'Tipo_sesion'=>'required',
+              'Tipo_Sesiones_idTipo_Sesiones'=>'required',
               'Nom_sesion'=>'required',
         ];
     }

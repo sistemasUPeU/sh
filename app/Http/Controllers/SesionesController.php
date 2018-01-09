@@ -40,12 +40,13 @@ class SesionesController extends Controller
 
           $sesiones=DB::table('sesiones as s')
           ->join('fecha as f','s.idSesiones','=','f.Sesiones_idSesiones')
-          ->select('s.idSesiones','s.Tipo_sesion','s.Nom_sesion','f.idFecha','f.Fecha','f.Sesiones_idSesiones')
+          ->select('s.idSesiones','s.Tipo_Sesiones_idTipo_Sesiones','s.Nom_sesion','f.idFecha','f.Fecha','f.Sesiones_idSesiones')
           ->get();
 
-           $tipo=DB::table('sesiones')->get();
+           $nombresesion=DB::table('sesiones')->get();
+           $tipo=DB::table('tipo_sesiones')->get();
 
-            return view('sesiones.asistencia.index',["sesiones"=>$sesiones,"tipo"=>$tipo]);
+            return view('sesiones.asistencia.index',["sesiones"=>$sesiones,"nombresesion"=>$nombresesion,"tipo"=>$tipo]);
         }     
     }
 
@@ -75,7 +76,7 @@ public function crearSesiones (SesionesFormRequest $request)
           DB::beginTransaction();
 
           $sesiones= new Sesiones;
-          $sesiones->Tipo_sesion=$request->get('Tipo_sesion'); 
+          $sesiones->Tipo_Sesiones_idTipo_Sesiones=$request->get('Tipo_Sesiones_idTipo_Sesiones'); 
           $sesiones->Nom_sesion=$request->get('Nom_sesion');   
           $sesiones->save();
           
