@@ -16,9 +16,7 @@ Route::auth();
 
 Route::group(['middleware' =>['auth','is_admin']], function (){
 
-Route::POST('sesiones/asistencia/crearFecha','SesionesController@crearFecha');
-Route::POST('sesiones/asistencia/crearSesiones','SesionesController@crearSesiones');
-Route::resource('sesiones/asistencia','SesionesController');
+
 
 });
 
@@ -58,6 +56,13 @@ Route::resource('seguridad/usuario','UsuarioController');
     Route::resource('Sesiones/asistencia','ListarSesionesController');
   
 });
+
+
+ /*PERMISOS PARA TODOS*/
+
+Route::POST('sesiones/asistencia/crearFecha','SesionesController@crearFecha');
+Route::POST('sesiones/asistencia/crearSesiones','SesionesController@crearSesiones');
+Route::resource('sesiones/asistencia','SesionesController');
 
  /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
  Route::resource('/Evaluar','EvaluarController');
