@@ -23,7 +23,7 @@ role="dialog" tabindex="-1" id="modal-crear-sesiones-sesiones">
                                                 <label>Tipo de sesion</label>
                                                  
 
-                                                <select name="Tipo_Sesiones_idTipo_Sesiones" class="form-control"> 
+                                                <select name="Tipo_Sesiones_idTipo_Sesiones" class="form-control border-input"> 
                       
                          @foreach($tipo as $t)
                          <option value="{{$t->idTipo_Sesiones}}">{{$t->Nom_tipo_ses}}</option>
@@ -37,7 +37,7 @@ role="dialog" tabindex="-1" id="modal-crear-sesiones-sesiones">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre de sesion</label>
-                                              <input type="text" name="Nom_sesion" class="form-control">
+                                              <input type="text" name="Nom_sesion" class="form-control border-input">
                                             </div>
                                         </div>
                                     </div> 

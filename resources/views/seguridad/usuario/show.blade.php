@@ -3,20 +3,19 @@
 @section('main-content')
  
  
-    <div class="main-panel" >
-
-        
-            <div class="container-fluid">
-
-          
+ 
 <div class="row">
-<div class="content">
-                    <div class="col-lg-4 col-md-5 f-b">
-
-                        <div class="card card-user">
-                                <div class="author col-md-8 col-md-offset-2">
+                    <div class="col-lg-4 col-md-5">
+                         <div class="card">
+                         
+                               <div class="author col-md-8 col-md-offset-2">
+                              <div class="content">
+                             
                                   <img class="img-responsive" src="{{asset('/img/avatar-user.png')}}"/>
-                              </div> 
+                                 
+                                </div>  </div> 
+ 
+                      
                             <div class="text-center">
                                 <div class="row">
                                     <div class="col-md-5 col-md-offset-1">
@@ -49,16 +48,16 @@
 
  
                             </div>  
-@include('seguridad.usuario.editUsuario') 
+
                         </div>
+             @include('seguridad.usuario.editUsuario')           
                     </div>
-               
 
 
 <div class="col-lg-8 col-md-7">
                         <div class="card f-b">
                             <div class="col-md-6 col-md-offset-4">
-                                <h4 class="title">Datos Generales</h4>
+                                <h4 class="title">Datos Personal</h4>
                             </div>
                             <div class="content">
                              
@@ -136,17 +135,14 @@
                                        
 
                                         <a data-target="#modal-editPersona-{{$trabajadores->idPersona}}" data-toggle="modal"><button class="btn btn-success">Editar datos de {{$trabajadores->Nom_per}} </button></a>
-                                    </div>
-
-                            @include('seguridad.usuario.editPersona')
-                              
+                                    </div>                 
                             </div>
                         </div>
+                        @include('seguridad.usuario.editPersona')
                     </div>
 
 
                     </div>
 
-            </div></div>
-             </div>
+            </div> 
 @endsection

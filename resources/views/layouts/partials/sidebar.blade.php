@@ -1,76 +1,57 @@
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
-
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-
-        <!-- Sidebar user panel (optional) -->
-        @if (! Auth::guest())
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="{{asset('/img/avatar-user.png')}}"/>
-                </div>
-                <div class="pull-left info">
-                    <p>{{ Auth::user()->Nom_user}}</p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
-                </div>
+<div class="sidebar" data-background-color="white" data-active-color="danger">
+ 
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Hospital de Huaycan
+                </a>
             </div>
-        @endif
- 
 
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
-            <li class="header">{{ trans('Menu') }}</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class="glyphicon glyphicon-home"></i><span>{{ trans('Inicio') }}</span></a></li>
+            <ul class="nav">
+                <li class="active">
+                    <a href="/seguridad/usuario">
+                        <i class="ti-view-grid"></i>
+                        <p>Inicio</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="typography.html">
+                        <i class="ti-text"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="ti-map"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
 
-            <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-user"></i> <span>{{ trans('Familia') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('Listar-Familia') }}">{{ trans('Nueva Familia') }}</a></li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a></li>
-                </ul>
-            </li>
-
-@if(Auth::user()->Rol_idRol == 3)
- 
-            <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-folder-close"></i> <span>{{ trans('Trabajadores') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('seguridad/usuario') }}">{{ trans('Lista de trabajadores') }}</a></li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans('Desactivos') }}</a></li>
-
-
-                </ul>
-            </li>
-
-@endif
-
-            <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-list-alt" ></i> <span>{{ trans('Sesiones') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Asistencia') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
-                   
-
-                </ul>
-
-            </li>
-            <li class="treeview">
-                <a href="#" ><i class="glyphicon glyphicon-edit"></i><span>{{ trans('Historial Clínico')}}</span><i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Control Nutricional') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Problemas Salud') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' CPN') }}</a> </li>
-                    <li><a href="{{ url('Nueva-Familia') }}">{{ trans(' Reportes') }}</a> </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="{{ url('Evaluar') }}"" ><i class="glyphicon glyphicon-calendar"></i> <span>{{ trans('Evaluación') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                
-            </li>
-        </ul><!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-</aside>
+            </ul>
+        </div>
+    </div>
+  
