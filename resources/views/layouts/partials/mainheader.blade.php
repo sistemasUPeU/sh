@@ -12,7 +12,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="" data-target="#modal-logout" data-toggle="modal" style="border: none;"><i class="glyphicon glyphicon-off" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesion"></i> salir</a> </li>
+                            <a href="" data-target="#modal-logout" data-toggle="modal" style="border: none;"><i class="ti-power-off" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesion"></i> salir</a> </li>
                              </ul>
                 </div>
             </div>
@@ -31,7 +31,7 @@ role="dialog" tabindex="-1" id="modal-logout">
                 <h4 class="modal-title text-primary">Estas seguro que deseas salir de tu cuenta?</h4>
             </div>
             <div class="modal-body">
-                <p class="text-danger">{{ Auth::user()->Nom_user}} estas a punto de cerrar sesion :'c</p>
+                <p class="text-danger">{{ Auth::user()->Nom_user}} estas a punto de cerrar sesion <i class="ti-face-sad"></i></p>
             </div>
 
 
