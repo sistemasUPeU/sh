@@ -24,7 +24,7 @@ class SesionesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('is_admin');
+        $this->middleware('auth');
     }
 
     /**
@@ -89,24 +89,21 @@ public function crearSesiones (SesionesFormRequest $request)
     }
 
    public function show($id){
-    
-/// aqui esta mal todo
 
-        $auditoria=DB::table('persona as p')
-        ->join('usuario as u','p.idPersona','=','u.Persona_idPersona')
-        ->join('distrito as d','p.Distrito_idDistrito','=','d.idDistrito')
-        ->join('rol as r','u.Rol_idRol','=','r.idRol')
-        ->select('p.idPersona','p.Nom_per','p.Apel_pater','p.Apel_mat','p.Telefono','p.DNI','p.Fecha_nac','p.Sexo','r.Nom_rol','p.Direccion','u.Nom_user','u.Estado_user','d.Nom_Dist','u.idUsuario')
-        ->where('p.idPersona','=',$id)
-        ->first();
         
-        $roles=DB::table('fecha')->get();  
-        $distritos=DB::table('distrito')->get();
 
-          return view("sesiones.asistencia.show",["trabajadores"=>$trabajadores,"roles"=>$roles,"distritos"=>$distritos]);
+$auditoria=DB::table('familia as fa')
+        ->join('asistencia as asis','fa.idFamilia','=','asis.Familia_idFamilia')
+        ->select('fa.idFamilia','fa.Nom_fam','asis.Estado_asistencia')
+        ->where('fa.Tipo_Familia_idTipo_Familia','!=','4')
+        ->paginate(7);
+  
+
+
+$fechas=DB::table('fecha')
+        ->where('idFecha','=',$id)
+        ->first();
+          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"fechas"=>$fechas]);
     }
-
-
-
 
 }

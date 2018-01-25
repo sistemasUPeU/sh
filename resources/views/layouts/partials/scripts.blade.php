@@ -12,10 +12,12 @@
 
 <script src="{{ asset('/js/bootstrap-select.min.js') }}" type="text/javascript"></script>
 
-<!-- AdminLTE App -->
-<script src="{{ asset('/js/app.min.js') }}" type="text/javascript"></script>
+<!-- APRENDER USAR -->
+<script src="{{ asset('/js/bootstrap-checkbox-radio.js') }}" type="text/javascript"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-      Both of these plugins are recommended to enhance the
-      user experience. Slimscroll is required when using the
-      fixed layout. -->
+<script src="{{ asset('/js/chartist.min.js') }}" type="text/javascript"></script>
+
+ 
+<script src="{{ asset('/js/bootstrap-notify.js') }}" type="text/javascript"></script>
+
+ <script src="{{ asset('/js/paper-dashboard.js') }}"></script>

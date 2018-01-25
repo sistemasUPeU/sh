@@ -21,13 +21,13 @@ role="dialog" tabindex="-1" id="modal-crear-fecha-sesiones">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Fecha</label>
-                                                <input type="date" name="Fecha" class="form-control">
+                                                <input type="date" name="Fecha" class="form-control border-input">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tipo de sesion</label>
-                                               <select name="Sesiones_idSesiones" class="form-control"> 
+                                               <select name="Sesiones_idSesiones" class="form-control border-input"> 
                       
                          @foreach($nombresesion as $n)
                          <option value="{{$n->idSesiones}}">{{$n->Nom_sesion}}</option>

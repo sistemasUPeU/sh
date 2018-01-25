@@ -9,46 +9,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('layouts.partials.htmlheader')
 @show
 
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
-<body class="skin-blue sidebar-mini">
+
+<body >
+ 
 <div class="wrapper">
 
-    @include('layouts.partials.mainheader')
+@include('layouts.partials.sidebar')
 
-    @include('layouts.partials.sidebar')
+<div class="main-panel">
+        @include('layouts.partials.mainheader')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-       
-        <!-- Main content -->
-        <section class="content" >
-            <!-- Your Page Content Here -->
-            @yield('main-content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+ <div class="content">
+            <div class="container-fluid">
 
-    @include('layouts.partials.footer')
+@yield('main-content')
+            </div>
+        </div>
 
-</div><!-- ./wrapper -->
+</div>
+</div>
+<!-- ./wrapper -->
     @include('layouts.partials.scripts')
     @stack('scripts')    
     
