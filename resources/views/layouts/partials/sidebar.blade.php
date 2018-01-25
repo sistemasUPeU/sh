@@ -21,9 +21,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="/seguridad/HistorialClinico">
                         <i class="ti-view-list-alt"></i>
-                        <p>Table List</p>
+                        <p>Historial Clinico</p>
                     </a>
                 </li>
                 <li>
