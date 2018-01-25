@@ -101,7 +101,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Direccion</label>
-                                                 <input type="text" class="form-control border-input" value="{{$trabajadores->Direccion}}" disabled>
+                                                 <input type="text" class="form-control" value="{{$trabajadores->Direccion}}" disabled>
                                               
                                             </div>
                                         </div>

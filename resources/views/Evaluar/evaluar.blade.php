@@ -34,11 +34,10 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
           
-					<th>Familia</th>
+					<th class="text-center">Familia</th>
           <th class="text-center">Responsable</th>
+          <th class="text-center">Tipo de Familia</th>
           <th class="text-center">Estado</th>
-          <th class="text-center">Modo Captación</th>
-					<th class="text-center">Resultado</th>	
 					<th class="text-center">Evaluacion</th>
 
 
@@ -48,11 +47,11 @@
                @foreach ($evaluaciones as $eval)
 				<tr>
 
-					<td>{{ $eval->Nom_fam}}</td> 
+					<td class="text-center">{{ $eval->Nom_fam}}</td>
 					<td class="text-center">{{ $eval->Respons_fam}}</td> 
-          <td class="text-center">{{ $eval->Estado}}</td>
-          <td class="text-center">{{ $eval->Modo_Capt}}</td>
-          <?php if ($eval->Estado_eval == '1'): ?>
+          <td class="text-center">{{ $eval->Tipo_Familia_idTipo_Familia}}</td>
+          
+          <?php if ($eval->Estado_Eval == '1'): ?>
           <td class="text-center"><span class="label label-default">Aprobada</span></td>	
           <?php else: ?>
           <td class="text-center"><span class="label label-danger">Falta</span></td>
