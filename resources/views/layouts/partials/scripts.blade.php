@@ -13,7 +13,7 @@
 <script src="{{ asset('/js/bootstrap-select.min.js') }}" type="text/javascript"></script>
 
 <!-- APRENDER USAR -->
-<script src="{{ asset('/js/bootstrap-checkbox-radio.js') }}" type="text/javascript"></script>
+<!-- <script src="{{ asset('/js/bootstrap-checkbox-radio.js') }}" type="text/javascript"></script> -->
 
 <script src="{{ asset('/js/chartist.min.js') }}" type="text/javascript"></script>
 
