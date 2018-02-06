@@ -52,8 +52,7 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                             </div>
                                         </div>
                                     </div>
-
-                                                                                                    <div class="row">
+                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Direccion</label>

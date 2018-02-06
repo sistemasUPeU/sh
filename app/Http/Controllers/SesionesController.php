@@ -92,18 +92,23 @@ public function crearSesiones (SesionesFormRequest $request)
 
         
 
-$auditoria=DB::table('familia as fa')
-        ->join('asistencia as asis','fa.idFamilia','=','asis.Familia_idFamilia')
-        ->select('fa.idFamilia','fa.Nom_fam','asis.Estado_asistencia')
-        ->where('fa.Tipo_Familia_idTipo_Familia','!=','4')
-        ->paginate(7);
-  
+$auditoria=DB::table('familia as fa')        
+->where('fa.Tipo_Familia_idTipo_Familia','!=','4')
+->paginate(7);
+
+
+$asistencia=DB::table('asistencia as asiss')
+->join('fecha as fe','asiss.Fecha_idFecha','=','fe.idFecha')
+->where('fe.idFecha','=',$id)
+->get();
 
 
 $fechas=DB::table('fecha')
-        ->where('idFecha','=',$id)
-        ->first();
-          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"fechas"=>$fechas]);
+->where('idFecha','=',$id)
+->first();
+  
+
+          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"asistencia"=>$asistencia,"fechas"=>$fechas]);
     }
 
 }
