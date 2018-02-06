@@ -54,7 +54,7 @@ Route::resource('seguridad/HistorialClinico','HistorialClinicoController');
     Route::resource('Familia','NuevaFamiliaController');
     Route::resource('/Carnet-Familiar','CarnetFammiliarController');
     Route::resource('/Carnet-General','CarnetFammiliarController');
-    Route::resource('Sesiones/asistencia','ListarSesionesController');
+    //Route::resource('Sesiones/asistencia','ListarSesionesController');
   
 });
 
@@ -64,6 +64,8 @@ Route::resource('seguridad/HistorialClinico','HistorialClinicoController');
 Route::POST('sesiones/asistencia/crearFecha','SesionesController@crearFecha');
 Route::POST('sesiones/asistencia/crearSesiones','SesionesController@crearSesiones');
 Route::resource('sesiones/asistencia','SesionesController');
+Route::resource('/perfil','perfilController');
+
 
  /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
  Route::resource('/Evaluar','EvaluarController');
