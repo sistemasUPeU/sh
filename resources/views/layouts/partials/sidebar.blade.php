@@ -14,12 +14,7 @@
                         <p>Inicio</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
+                
                 <li>
                     <a href="/seguridad/HistorialClinico">
                         <i class="ti-view-list-alt"></i>
@@ -48,6 +43,12 @@
                     <a href="notifications.html">
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/perfil">
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
                     </a>
                 </li>
 
