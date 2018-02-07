@@ -1,6 +1,7 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal-RegAsis-">
+role="dialog" tabindex="-1" id="modal-RegAsis-{{$au->idFamilia}}" style="position: absolute;top: -40px;">
 
+{{Form::Open(array('action'=>array('SesionesController@RegAsis'),'method'=>'POST'))}}
 
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,14 +14,11 @@ role="dialog" tabindex="-1" id="modal-RegAsis-">
             </div>
 
 <div class="modal-body">
-
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>DNI</label>
-                                                <input type="text" class="form-control border-input"  name="DNI" >
-                                            </div>
-                                        </div>
+         <input type="text" name="Familia_idFamilia" value="{{$au->idFamilia}}" hidden>
+          <input type="text" name="Fecha_idFecha"  value="{{$fechas->idFecha}}" hidden>
+         <div class="row">
+               <label class="col-md-12">Estas seguro de marcar como <b style="color: blue">Asistencia</b> a la familia <b style="color: black">{{$au->Nom_fam}}</b> ?</label>
+                                        
                                          </div>
 
 
@@ -35,4 +33,5 @@ role="dialog" tabindex="-1" id="modal-RegAsis-">
 </div>
 
 </div>
+{{Form::Close()}}
 </div>

@@ -5,6 +5,7 @@ namespace sisHospital\Http\Controllers;
 use Illuminate\Http\Request;
 use sisHospital\Http\Requests;
 use sisHospital\Sesiones;
+use sisHospital\Asistencia;
 use sisHospital\Fecha;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\input;
@@ -88,14 +89,16 @@ public function crearSesiones (SesionesFormRequest $request)
         return Redirect::to('sesiones/asistencia');
     }
 
-   public function show($id){
+   public function show(Request $request ,$id){
 
-        
-
+   if ($request) 
+   {     
+$query=trim($request->get('searchText'));
 $auditoria=DB::table('familia as fa')        
 ->where('fa.Tipo_Familia_idTipo_Familia','!=','4')
+->where('fa.Nom_fam','LIKE','%'.$query.'%')
 ->paginate(7);
-
+}
 
 $asistencia=DB::table('asistencia as asiss')
 ->join('fecha as fe','asiss.Fecha_idFecha','=','fe.idFecha')
@@ -108,7 +111,47 @@ $fechas=DB::table('fecha')
 ->first();
   
 
-          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"asistencia"=>$asistencia,"fechas"=>$fechas]);
+          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"asistencia"=>$asistencia,"fechas"=>$fechas,"searchText"=>$query]);
+        
     }
+
+    public function ReRegAsis(Request $request,$id){
+
+       $asistencia=Asistencia::findOrFail($id); 
+       $asistencia->Estado_asistencia='1';
+       $asistencia->update();
+       return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
+
+    }
+
+
+    public function EditAsis(Request $request,$id){
+       $asistencia=Asistencia::findOrFail($id); 
+       $asistencia->Estado_asistencia=$request->get('Estado_asistencia');
+       $asistencia->update();
+       return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
+
+      
+    }
+
+    public function RegAsis(Request $request){
+    
+    try{
+    
+          DB::beginTransaction();
+          $asistencia=new Asistencia;
+          $asistencia->Estado_asistencia='1';
+          $asistencia->Familia_idFamilia=$request->get('Familia_idFamilia');
+       $asistencia->Fecha_idFecha=$request->get('Fecha_idFecha');
+          $asistencia->save();
+          
+          DB::commit();
+           }catch(\Exception $e)
+           {
+        DB::rollback();
+           }
+           return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
+    }
+   
 
 }

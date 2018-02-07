@@ -11,6 +11,7 @@
    <div class="row justify-content: center">
    <div class="col-lg-6 col-md-6 col-md-offset-2">
 		<h3>Asistencias <i class="ti-clipboard"></i></h3>
+    @include('sesiones.asistencia.search') 
 	   
 	</div>
    </div>
@@ -21,7 +22,8 @@
                                     <thead>
 					 
                     <th>Familia</th>
- 	<th>Asistencia de {{ $fechas->Fecha}}</th> 
+ 	<th>Asistencia de {{ $fechas->Fecha}}</th>
+    
 <th>Opciones</th>
 				</thead>
  
@@ -29,6 +31,7 @@
 @foreach ($auditoria as $au)
  <?php $bandera = 0 ?>
  <?php $nulo = 0 ?>
+
 				<tr>
 					<td>{{ $au->Nom_fam}}</td>
 	
@@ -39,7 +42,7 @@
  <?php $bandera++ ?>
  @endif
 
- @if($au->idFamilia == $asis->Familia_idFamilia && $asis->Estado_asistencia == 2) <!-- aqui igualo la id -->
+ @if($au->idFamilia == $asis->Familia_idFamilia && $asis->Estado_asistencia == 0) <!-- aqui igualo la id -->
  <?php $nulo++ ?>
  @endif
  @endforeach
@@ -51,7 +54,7 @@
     </label>  
 </td> 
 
-<td><a data-target="#modal-EditAsis-" data-toggle="modal"><button class="btn"><i class="ti-pencil-alt2"></i> Editar</button></a></td>
+<td><a data-target="#modal-EditAsis-{{$au->idFamilia}}" data-toggle="modal"><button class="btn"><i class="ti-pencil-alt2"></i> Editar</button></a></td>
 
 @elseif($nulo)
 <td><label class="box-label">
@@ -59,22 +62,24 @@
         <span class="box-text"></span>
     </label></td> 
 
-<td><a data-target="#modal-ReRegAsis-" data-toggle="modal"><button class="btn btn-info"><i class="ti-receipt"></i> Registrar E.</button></a></td>
+<td><a data-target="#modal-ReRegAsis-{{$au->idFamilia}}" data-toggle="modal"><button class="btn btn-info"><i class="ti-receipt"></i> Registrar</button></a></td>
 @else
 <td><label class="box-label">
         <input type="checkbox" class="box-check" disabled/>
         <span class="box-text"></span>
     </label></td>
 
-<td><a data-target="#modal-RegAsis-" data-toggle="modal"><button class="btn btn-info"><i class="ti-receipt"></i> Registrar</button></a></td>
-
+<td><a data-target="#modal-RegAsis-{{$au->idFamilia}}" data-toggle="modal"><button class="btn btn-info"><i class="ti-receipt"></i> Registrar</button></a></td>
 @endif
 
 
+</tr>   
 
-
-</tr>
-				@endforeach
+ @include('sesiones.asistencia.RegAsis')
+ @include('sesiones.asistencia.ReRegAsis') 
+ @include('sesiones.asistencia.EditAsis') 			
+ 
+        @endforeach
                                 </table>
 
                             </div> 
@@ -82,9 +87,7 @@
                         </div>
                     </div>
 
-  @include('sesiones.asistencia.ReRegAsis') 
-  @include('sesiones.asistencia.RegAsis') 
-  @include('sesiones.asistencia.EditAsis') 
+  
                 </div>
             </div>
 
