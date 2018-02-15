@@ -22,6 +22,8 @@
 
             {!!Form::open(array('url'=>'seguridad/usuario','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
+
+            {{ csrf_field() }}
 <div class="content">
                              
                                     <div class="row">             
@@ -117,6 +119,20 @@
                                 @endif
                             </div>
                         </div>
+
+<div class="col-md-2">
+                      <div class="form-group">
+                        <label >Distrito</label>
+                     <select name="Distrito_idDistrito" class="form-control border-input"> 
+                         @foreach($distritos as $dis)
+                         <option value="{{$dis->idDistrito}}">{{$dis->Nom_Dist}}</option>
+                         @endforeach
+                        
+                    </select>
+                    </div>
+
+                    </div>
+
 
 
 </div>
