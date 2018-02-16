@@ -36,7 +36,7 @@ Route::resource('seguridad/usuario','UsuarioController');
 Route::resource('seguridad/HistorialClinico','HistorialClinicoController');
 //Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
 //Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
-
+Route::resource('reporte/asistencia','RepoAsistenciaController');
 
 
 ////////////////////////////////////////////
