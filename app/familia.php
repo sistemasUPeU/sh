@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class familia extends Model
 {
-    //
-    protected  $table='carnetfamiliar';
-    protected $touches='idCarnetFamiliar';
+    protected $table='familia';
+    protected $primarykey='idFamilia';
 
-    public $timestamps =false;
+    public $timestamps=false;
 
     protected $fillable = [
-        'num_familiabeneficiada',
-        'familia',
-        'ape_paterno',
-        'nombres',
-        'direccion',
-        'historial_cli',
-        'dni',
-        'estado',
-        'Hijo_idhijo',
-        'Madre_idMadre',
-        'Sesiones_idSesiones'
-    ];
+      'Codigo_fam',
+      'Nom_fam',
+      'Respons_fam',
+      'Tipo_Familia_idTipo_Familia',
+      'Modo_Captacion_idModo_Captacion',
+      'Programa_idPrograma',
+      'Madre_idMadre',
+     
+   ];
 
+   protected $guarded =[
+
+
+   ];
 }

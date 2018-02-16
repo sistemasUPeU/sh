@@ -1,8 +1,16 @@
 <?php
 namespace sisHospital\Http\Controllers;
 use Illuminate\Http\Request;
-use DB;
 use sisHospital\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\input;
+use DB;
+use Response;
+use Illuminate\Support\Collection;
+use sisHospital\familia;
+use sisHospital\HC_Madre;
+use sisHospital\nino;
+use sisHospital\madre;
 class FamiliaController extends Controller
 {
     /**
@@ -51,15 +59,82 @@ class FamiliaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  {
+
+      try{
+
+
+          DB::beginTransaction();
+          $madre = new madre;
+          $madre->Madre_apel_pa=$request->get('Madre_apel_pa');
+          $madre->Madre_apel_ma=$request->get('Madre_apel_ma');
+          $madre->Madre_nombre=$request->get('Madre_nombre');
+          $madre->Madre_DNI=$request->get('Madre_DNI');
+          $madre->Madre_fecha=$request->get('Madre_fecha'); 
+          $madre->Madre_direccion=$request->get('Madre_direccion');
+          $madre->Madre_telf=$request->get('Madre_telf');
+          $madre->distrito_idDistrito=$request->get('distrito_idDistrito');
+          $madre->save();
+
+
+          $familia = new familia;
+          $familia->Codigo_fam=$request->get('Codigo_fam');
+          $familia->Nom_fam=$request->get('Nom_fam');
+          $familia->Respons_fam=$request->get('Respons_fam');
+          $familia->Tipo_Familia_idTipo_Familia=$request->get('Tipo_Familia_idTipo_Familia');
+          $familia->Modo_Captacion_idModo_Captacion=$request->get('Modo_Captacion_idModo_Captacion');
+          $familia->Programa_idPrograma=2;
+          $familia->Madre_idMadre=$madre->idMadre;
+          $familia->save();
+
+
+          $HC_Madre = NEW HC_Madre;
+          $HC_Madre->Gestante_Inicio=$request->get('Gestante_Inicio');
+          $HC_Madre->CPN_Antes=$request->get('CPN_Antes');
+          $HC_Madre->Cantidad_CPN_Antes=$request->get('Cantidad_CPN_Antes');
+          $HC_Madre->Papanicolau_Antes=$request->get('Papanicolau_Antes');
+          $HC_Madre->Examen_Mamas_Antes=$request->get('Examen_Mamas_Antes');
+          $HC_Madre->Vacuna_Antitetanica_Antes=$request->get('Vacuna_Antitetanica_Antes');
+          $HC_Madre->Cantidad_Vacunas_Antitetanicas=$request->get('Cantidad_Vacunas_Antitetanicas');
+          $HC_Madre->Planificacion_Familiar_idPlanificacion_Familiar=$request->get('Planificacion_Familiar_idPlanificacion_Familiar');
+          $HC_Madre->Madre_idMadre=$madre->idMadre;
+          $HC_Madre->save();
+
+
+          $Nino_HC = $request->get('Nino_HC');
+          $Nino_DNI = $request->get('Nino_DNI');
+          $Nino_sexo = $request->get('Nino_sexo');
+          $Nino_apelpa = $request->get('Nino_apelpa');
+          $Nino_apelma = $request->get('Nino_apelma');
+          $Nino_nombre = $request->get('Nino_nombre');
+          $Nino_fecha = $request->get('Nino_fecha');
+
+          $cont = 0;
+          while ($cont < count($Nino_HC)) {
+            $nino = new nino();
+            $nino->Madre_idMadre = $madre->idMadre;
+            $nino->Nino_HC = $Nino_HC[$cont];
+            $nino->Nino_DNI = $Nino_DNI[$cont];
+            $nino->Nino_sexo = $Nino_sexo[$cont];
+            $nino->Nino_apelpa = $Nino_apelpa[$cont];
+            $nino->Nino_apelma = $Nino_apelma[$cont];
+            $nino->Nino_nombre = $Nino_nombre[$cont];
+            $nino->Nino_fecha = $Nino_fecha[$cont];
+            $nino->save();
+            $cont = $cont+1;
+          }
+       
+        
+          DB::commit();
+
+      }catch(\Exception $e)
+     
+      {
+        DB::rollback();
+        echo($e);
+      }
+      return view ('home');
+     }
     public function show($id)
     {
         //
