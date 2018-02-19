@@ -46,9 +46,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/perfil">
+                    <a href="/seguridad/UserSafety">
                         <i class="ti-user"></i>
-                        <p>User Profile</p>
+                        <p>Perfil Usuario</p>
                     </a>
                 </li>
 
