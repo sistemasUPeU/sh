@@ -21,19 +21,19 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>DNI</label>
-                                                <input type="text" class="form-control"  name="DNI" value="{{$trabajadores->DNI}}">
+                                                <input type="text" class="form-control border-input"  name="DNI" value="{{$trabajadores->DNI}}">
                                             </div>
                                         </div>
                                           <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                 <input type="text" class="form-control" name="Nom_per"  value="{{$trabajadores->Nom_per}}">
+                                                 <input type="text" class="form-control border-input" name="Nom_per"  value="{{$trabajadores->Nom_per}}">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label >Telefono</label>
-                                                <input type="text" class="form-control" name="Telefono" value="{{$trabajadores->Telefono}}">
+                                                <input type="text" class="form-control border-input" name="Telefono" value="{{$trabajadores->Telefono}}">
                                             </div>
                                         </div>
                                     </div>
@@ -42,18 +42,17 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellido Paterno</label>
-                                               <input type="text" class="form-control" name="Apel_pater"  value="{{$trabajadores->Apel_pater}}">
+                                               <input type="text" class="form-control border-input" name="Apel_pater"  value="{{$trabajadores->Apel_pater}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellido Materno</label>
-                                                <input type="text" class="form-control" name="Apel_mat"  value="{{$trabajadores->Apel_mat}}" >
+                                                <input type="text" class="form-control border-input" name="Apel_mat"  value="{{$trabajadores->Apel_mat}}" >
                                             </div>
                                         </div>
                                     </div>
-
-                                                                                                    <div class="row">
+                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Direccion</label>
@@ -69,7 +68,7 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Distrito</label>
-                                                  <select name="Distrito_idDistrito" class="form-control">
+                                                  <select name="Distrito_idDistrito" class="form-control border-input">
                          @foreach($distritos as $dis)
                          <option value="{{$dis->idDistrito}}">{{$dis->Nom_Dist}}</option>
                          @endforeach
@@ -81,7 +80,7 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Sexo</label>
-                                                <select name="Sexo" class="form-control">
+                                                <select name="Sexo" class="form-control border-input">
 
                          <?php if ($trabajadores->Sexo == 'Masculino'): ?>
                           <option value="Masculino" selected="">Masculino</option>
@@ -99,7 +98,7 @@ role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Fecha de nacimiento</label>
-                                                  <input id="Fecha_nac" type="date" class="form-control" name="Fecha_nac" value="{{$trabajadores->Fecha_nac}}">
+                                                  <input id="Fecha_nac" type="date" class="form-control border-input" name="Fecha_nac" value="{{$trabajadores->Fecha_nac}}">
 
                                             </div>
                                         </div>

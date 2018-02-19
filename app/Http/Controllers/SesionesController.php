@@ -5,6 +5,7 @@ namespace sisHospital\Http\Controllers;
 use Illuminate\Http\Request;
 use sisHospital\Http\Requests;
 use sisHospital\Sesiones;
+use sisHospital\Asistencia;
 use sisHospital\Fecha;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\input;
@@ -24,7 +25,7 @@ class SesionesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('is_admin');
+        $this->middleware('auth');
     }
 
     /**
@@ -88,25 +89,69 @@ public function crearSesiones (SesionesFormRequest $request)
         return Redirect::to('sesiones/asistencia');
     }
 
-   public function show($id){
-    
-/// aqui esta mal todo
+   public function show(Request $request ,$id){
 
-        $auditoria=DB::table('persona as p')
-        ->join('usuario as u','p.idPersona','=','u.Persona_idPersona')
-        ->join('distrito as d','p.Distrito_idDistrito','=','d.idDistrito')
-        ->join('rol as r','u.Rol_idRol','=','r.idRol')
-        ->select('p.idPersona','p.Nom_per','p.Apel_pater','p.Apel_mat','p.Telefono','p.DNI','p.Fecha_nac','p.Sexo','r.Nom_rol','p.Direccion','u.Nom_user','u.Estado_user','d.Nom_Dist','u.idUsuario')
-        ->where('p.idPersona','=',$id)
-        ->first();
+   if ($request) 
+   {     
+$query=trim($request->get('searchText'));
+$auditoria=DB::table('familia as fa')        
+->where('fa.Tipo_Familia_idTipo_Familia','!=','4')
+->where('fa.Nom_fam','LIKE','%'.$query.'%')
+->paginate(7);
+}
+
+$asistencia=DB::table('asistencia as asiss')
+->join('fecha as fe','asiss.Fecha_idFecha','=','fe.idFecha')
+->where('fe.idFecha','=',$id)
+->get();
+
+
+$fechas=DB::table('fecha')
+->where('idFecha','=',$id)
+->first();
+  
+
+          return view("sesiones.asistencia.show",["auditoria"=>$auditoria,"asistencia"=>$asistencia,"fechas"=>$fechas,"searchText"=>$query]);
         
-        $roles=DB::table('fecha')->get();  
-        $distritos=DB::table('distrito')->get();
+    }
 
-          return view("sesiones.asistencia.show",["trabajadores"=>$trabajadores,"roles"=>$roles,"distritos"=>$distritos]);
+    public function ReRegAsis(Request $request,$id){
+
+       $asistencia=Asistencia::findOrFail($id); 
+       $asistencia->Estado_asistencia='1';
+       $asistencia->update();
+       return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
+
     }
 
 
+    public function EditAsis(Request $request,$id){
+       $asistencia=Asistencia::findOrFail($id); 
+       $asistencia->Estado_asistencia=$request->get('Estado_asistencia');
+       $asistencia->update();
+       return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
 
+      
+    }
+
+    public function RegAsis(Request $request){
+    
+    try{
+    
+          DB::beginTransaction();
+          $asistencia=new Asistencia;
+          $asistencia->Estado_asistencia='1';
+          $asistencia->Familia_idFamilia=$request->get('Familia_idFamilia');
+       $asistencia->Fecha_idFecha=$request->get('Fecha_idFecha');
+          $asistencia->save();
+          
+          DB::commit();
+           }catch(\Exception $e)
+           {
+        DB::rollback();
+           }
+           return Redirect::to('sesiones/asistencia/'.$asistencia->Fecha_idFecha);
+    }
+   
 
 }

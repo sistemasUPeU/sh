@@ -56,3 +56,41 @@
   z-index: 1;
 
 }
+
+
+/* checkbox*/
+
+.box{
+  padding: 50px;
+  height: 400px;
+  width: 500px;
+}
+.box-label{
+  display: inline-block;
+  margin: 5px;
+}
+.box-text:before{
+  content:"\f096";
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  margin-right: 5px;
+  width: 1em;
+  display: inline-block;
+}
+.box-check:checked + .box-text:before{
+  content:"\f14a";
+  color: #1e88e5;
+  animation: checkanimate 200ms;
+}
+.box-label input[type="checkbox"]{
+  display: none;
+}
+@keyframes checkanimate{
+  0% {transform: scale(0);}
+  90% {transform: scale(1.4);}
+  100% {transform: scale(1);}
+}

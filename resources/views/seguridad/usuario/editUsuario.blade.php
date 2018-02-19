@@ -23,7 +23,7 @@ role="dialog" tabindex="-1" id="modal-editUsuario-{{$trabajadores->idUsuario}}">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Estado</label>
-                                               <select name="Estado_user" class="form-control"> 
+                                               <select name="Estado_user" class="form-control border-input"> 
                           
                          <?php if ($trabajadores->Estado_user == 1): ?>
                           <option value="1" selected >Activo</option>
@@ -40,7 +40,7 @@ role="dialog" tabindex="-1" id="modal-editUsuario-{{$trabajadores->idUsuario}}">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Rol de trabajador</label>
-                                                <select name="Rol_idRol" class="form-control"> 
+                                                <select name="Rol_idRol" class="form-control border-input"> 
                       
                          @foreach($roles as $r)
                          <option value="{{$r->idRol}}">{{$r->Nom_rol}}</option>
@@ -55,7 +55,7 @@ role="dialog" tabindex="-1" id="modal-editUsuario-{{$trabajadores->idUsuario}}">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre de Usuario</label>
-                                                 <input id="Nom_user" type="text" class="form-control" name="Nom_user" value="{{$trabajadores->Nom_user}}">
+                                                 <input id="Nom_user" type="text" class="form-control border-input" name="Nom_user" value="{{$trabajadores->Nom_user}}">
                                               
                                             </div>
                                         </div>

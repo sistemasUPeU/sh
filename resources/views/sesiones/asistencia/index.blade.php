@@ -2,34 +2,41 @@
 
 @section('main-content')
 
-<div class="main-panel" >
 
-
-            <div class="container-fluid">
 
  <div class="row">
 
-
-                    <div class="col-lg-4 col-md-5">
-                    <div class="col-md-8 col-md-offset-2  f-b">
-<br>
-
- <div class="text-center form-group pull-left">
+<div class="col-lg-4 col-md-5">
+                        <div class="card">
+ 
+                            <div class="content">
+                                <p class="description text-center">
+                                    "AVANCEN CON SUS MODULOS!!!"<br>
+                                    ustedes pueden ;)
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-1">
+                                     <div class="text-center form-group">
 <a  data-target="#modal-crear-sesiones-sesiones" data-toggle="modal"><button class="btn btn-success"><i class="glyphicon glyphicon-list-alt"></i> Crear Sesiones</button></a>
-</div>
-
-<div class="text-center form-group pull-left">
+</div>    <div class="text-center form-group">
 <a  data-target="#modal-crear-fecha-sesiones" data-toggle="modal"><button class="btn btn-success "><i class="glyphicon glyphicon-calendar"></i> Crear Fechas</button></a>
 </div>
-
- </div>
+                                    </div>
                                 </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
 @include('sesiones.asistencia.crearSesiones')
 @include('sesiones.asistencia.crearFecha')
 
 
-
-                               <div class="responsive-calendar col-lg-8 col-md-12">
+<div class="responsive-calendar col-lg-7 col-md-7">
 
    <div class="card f-b content">
         <div class="controls">
@@ -38,7 +45,7 @@
             <h4><span data-head-year></span> <span data-head-month></span></h4>
             <a class="pull-right" data-go="next"><div class="btn btn-primary">Sig</div></a>
         </div><hr/>
-        <div class="day-headers ">
+        <div class="day-headers">
           <div class="day header">Lun</div>
           <div class="day header">Mar</div>
           <div class="day header">Mie</div>
@@ -54,13 +61,8 @@
 </div>
 
 </div>
+ </div>
 
-
-
-</div>
-
-</div>
-</div>
 
 <?php $now = new \DateTime();?>
 
@@ -73,7 +75,7 @@
           events: {
              @foreach ($sesiones as $ses)
 
-            "{{ $ses->Fecha}}": {"number":'{{ $ses->Nom_sesion}}', "url": "{{ $ses->idFecha}}"},
+            "{{ $ses->Fecha}}": {"number":'{{ $ses->Nom_sesion}}', "url": "{{URL::action('SesionesController@show',$ses->idFecha)}}"},
 
 @endforeach
 

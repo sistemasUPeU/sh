@@ -2,8 +2,14 @@
 
 @section('main-content')
     <div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nueva Usuario</h3>
+		<div class="col-lg-12 col-md-12">
+
+            <div class="card f-b">
+            <div class="header">
+                <div class="col-md-6 col-md-offset-4">
+                              <h3>Nuevo Usuario</h3>
+                            </div>
+			</div>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -17,12 +23,14 @@
             {!!Form::open(array('url'=>'seguridad/usuario','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
 
-
-                        <div class="form-group{{ $errors->has('Nom_per') ? ' has-error' : '' }}">
-                            <label for="Nom_per" class="col-md-4 control-label">Nombre</label>
-
-                            <div class="col-md-6">
-                                <input id="Nom_per" type="text" class="form-control" name="Nom_per">
+            {{ csrf_field() }}
+<div class="content">
+                             
+                                    <div class="row">             
+   <div class="col-md-3">
+                                 <div class="form-group{{ $errors->has('Nom_per') ? ' has-error' : '' }}">
+                                <label>Nombre</label>
+                                <input id="Nom_per" type="text" class="form-control border-input" name="Nom_per">
 
                                 @if ($errors->has('Nom_per'))
                                     <span class="help-block">
@@ -31,12 +39,12 @@
                                 @endif
                             </div>
                         </div>
+                                    
 
-                        <div class="form-group{{ $errors->has('Apel_pater') ? ' has-error' : '' }}">
-                            <label for="Apel_pater" class="col-md-4 control-label">Apellido Paterno</label>
-
-                            <div class="col-md-6">
-                                <input id="Apel_pater" type="text" class="form-control" name="Apel_pater">
+   <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('Apel_pater') ? ' has-error' : '' }}">
+                                 <label>Apellido Paterno</label>
+                                <input id="Apel_pater" type="text" class="form-control border-input" name="Apel_pater">
 
                                 @if ($errors->has('Apel_pater'))
                                     <span class="help-block">
@@ -46,11 +54,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('Apel_mat') ? ' has-error' : '' }}">
-                            <label for="Apel_mat" class="col-md-4 control-label">Apellido Materno</label>
 
-                            <div class="col-md-6">
-                                <input id="Apel_mat" type="text" class="form-control" name="Apel_mat">
+
+                           
+
+    <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('Apel_mat') ? ' has-error' : '' }}">
+                                 <label>Apellido Materno</label>
+                                <input id="Apel_mat" type="text" class="form-control border-input" name="Apel_mat">
 
                                 @if ($errors->has('Apel_mat'))
                                     <span class="help-block">
@@ -60,26 +71,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('DNI') ? ' has-error' : '' }}">
-                            <label for="DNI" class="col-md-4 control-label">N° DNI</label>
 
-                            <div class="col-md-6">
-                                <input id="DNI" type="text" class="form-control" name="DNI">
+    <div class="col-md-2">
+                        <div class="form-group">
+                       <label>Sexo</label>
+                     <select name="Sexo" class="form-control border-input"> 
+                      
+                         <option value="Masculino">Masculino</option>
+                         <option value="Femenino">Femenino</option> 
+                    </select>
+                    </div>
 
-                                @if ($errors->has('DNI'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('DNI') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-   
-   
-                          <div class="form-group{{ $errors->has('Fecha_nac') ? ' has-error' : '' }}">
-                            <label for="Fecha_nac" class="col-md-4 control-label">Fecha de Nacimiento</label>
+                   </div>
 
-                            <div class="col-md-6">
-                                <input id="Fecha_nac" type="date" class="form-control" name="Fecha_nac">
+
+
+
+                                    </div>
+                                    <div class="row">
+
+<div class="col-md-3">
+                                <div class="form-group{{ $errors->has('Fecha_nac') ? ' has-error' : '' }}">
+                                <label>Fecha de Nacimiento</label>
+                                <input id="Fecha_nac" type="date" class="form-control border-input" name="Fecha_nac">
 
                                 @if ($errors->has('Fecha_nac'))
                                     <span class="help-block">
@@ -89,41 +103,49 @@
                             </div>
                         </div>
 
-                        
-                     <div class="form-group">
-                     <label for="Sexo" class="col-md-4 control-label">Sexo</label>
-                     <div class="col-md-6">
-                      
-                     <select name="Sexo" class="form-control"> 
-                      
-                         <option value="Masculino">Masculino</option>
-                         <option value="Femenino">Femenino</option> 
-                    </select>
-                    </div>
 
-                   </div>
-           
 
+                           
+
+   <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('DNI') ? ' has-error' : '' }}">
+                                 <label>N° DNI</label>
+                                <input id="DNI" type="text" class="form-control border-input" name="DNI">
+
+                                @if ($errors->has('DNI'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('DNI') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+<div class="col-md-2">
                       <div class="form-group">
-                     <label for="Distrito_idDistrito" class="col-md-4 control-label">Distrito</label>
-                     <div class="col-md-6">
-                      
-                     <select name="Distrito_idDistrito" class="form-control"> 
-                      
+                        <label >Distrito</label>
+                     <select name="Distrito_idDistrito" class="form-control border-input"> 
                          @foreach($distritos as $dis)
                          <option value="{{$dis->idDistrito}}">{{$dis->Nom_Dist}}</option>
                          @endforeach
-
+                        
                     </select>
                     </div>
 
                     </div>
 
-                        <div class="form-group{{ $errors->has('Direccion') ? ' has-error' : '' }}">
-                            <label for="Direccion" class="col-md-4 control-label">Direccion</label>
+
+
+</div>
+                                    
+                                    <div class="row">
+                                      
+
+                           
 
                             <div class="col-md-6">
-                                <input id="Direccion" type="text" class="form-control" name="Direccion">
+                                 <div class="form-group{{ $errors->has('Direccion') ? ' has-error' : '' }}">
+                                     <label >Direccion</label>
+                                <input id="Direccion" type="text" class="form-control border-input" name="Direccion">
 
                                 @if ($errors->has('Direccion'))
                                     <span class="help-block">
@@ -133,11 +155,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('Telefono') ? ' has-error' : '' }}">
-                            <label for="Telefono" class="col-md-4 control-label">Telefono</label>
 
-                            <div class="col-md-6">
-                                <input id="Telefono" type="text" class="form-control" name="Telefono">
+                            
+
+                            <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('Telefono') ? ' has-error' : '' }}">
+                                    <label>N° Telefono</label>
+                                <input id="Telefono" type="text" class="form-control border-input" name="Telefono">
 
                                 @if ($errors->has('Telefono'))
                                     <span class="help-block">
@@ -146,12 +170,18 @@
                                 @endif
                             </div>
                         </div>
- 
-                        <div class="form-group{{ $errors->has('Nom_user') ? ' has-error' : '' }}">
-                            <label for="Nom_user" class="col-md-4 control-label">Nombre de Usuario</label>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="Nom_user" type="text" class="form-control" name="Nom_user" value="{{ old('Nom_user') }}">
+                                    <div class="row">
+                                         
+
+
+                            
+
+                            <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('Nom_user') ? ' has-error' : '' }}">
+                                    <label>Nombre de Usuario</label>
+                                <input id="Nom_user" type="text" class="form-control border-input" name="Nom_user" value="{{ old('Nom_user') }}">
 
                                 @if ($errors->has('Nom_user'))
                                     <span class="help-block">
@@ -161,11 +191,12 @@
                             </div>
                         </div>
 
-                         <div class="form-group">
-                     <label for="Rol_idRol" class="col-md-4 control-label">Rol</label>
-                     <div class="col-md-6">
-                      
-                     <select name="Rol_idRol" class="form-control"> 
+
+                     
+                     <div class="col-md-2">
+                      <div class="form-group">
+                        <label >Rol</label>
+                     <select name="Rol_idRol" class="form-control border-input"> 
                          @foreach($roles as $r)
                          <option value="{{$r->idRol}}">{{$r->Nom_rol}}</option>
                          @endforeach
@@ -175,11 +206,13 @@
 
                     </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
+                           
+
+                            <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                     <label >Contraseña</label>
+                                <input id="password" type="password" class="form-control border-input" name="password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -189,11 +222,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+
+
+                           
+
+                            <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                     <label >Confirmar Contraseña</label>
+                                <input id="password-confirm" type="password" class="form-control border-input" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
@@ -202,13 +239,22 @@
                                 @endif
                             </div>
                         </div>
- 
-               <div class="form-group">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
-            </div>
+                                   
+                                    </div>
+                                    
+                                <div class="row">  
+                                <div class="content">                
+                             <div class="form-group">
+                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <button class="btn btn-danger pull-left" type="reset">Cancelar</button>
+            </div></div></div>
+
+                            </div>
 			{!!Form::close()!!}		
             
-		</div>
+		
+      </div>
+     </div>
 	</div>
-@endsection
+@endsection          
+                        
