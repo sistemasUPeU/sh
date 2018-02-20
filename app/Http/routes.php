@@ -66,11 +66,8 @@ Route::PATCH('sesiones/asistencia/ReRegAsis/{idAsistencia}','SesionesController@
 Route::PATCH('sesiones/asistencia/EditAsis/{idAsistencia}','SesionesController@EditAsis');
 Route::resource('sesiones/asistencia','SesionesController');
 Route::POST('Familia/store','FamiliaController@store');
-<<<<<<< HEAD
 
-=======
 Route::resource('seguridad/UserSafety','ProfileController');
->>>>>>> 030e24451e200334236e91e726210e5d8cfce139
 
 
  /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
