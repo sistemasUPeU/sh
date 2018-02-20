@@ -11,7 +11,7 @@
    <div class="row justify-content: center">
    <div class="col-lg-6 col-md-6 col-md-offset-2">
 		<h3>Reporte <i class="ti-clipboard"></i></h3>
-    @include('reporte.asistencia.search') 
+  
 	   
 	</div>
    </div>
@@ -26,24 +26,4 @@
 				</thead>
  
  
-@foreach ($familias as $fa)
-
-
-				<tr>
-					<td>{{ $fa->Nom_fam}}</td>
-	                <td>hola</td>
-</tr>   
-
-        @endforeach
-                                </table>
-
-                            </div> 
-                           {{$familias->render()}}
-                        </div>
-                    </div>
-
-  
-                </div>
-            </div>
-
 @endsection

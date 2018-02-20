@@ -21,6 +21,6 @@
  
     <link href="{{ asset('/css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/responsive-calendar.css') }}" rel="stylesheet" type="text/css" />
-    
+    <link href="{{ asset('/css/progress-tracker.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
