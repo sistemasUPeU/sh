@@ -22,9 +22,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="/Evaluar">
                         <i class="ti-text"></i>
-                        <p>Typography</p>
+                        <p>Evaluación</p>
                     </a>
                 </li>
                 <li>
