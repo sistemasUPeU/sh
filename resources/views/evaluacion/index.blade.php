@@ -39,8 +39,11 @@
                     @endif
                     @endforeach
 				</tr>
-			  
+			   <td>
+            <a href="{{URL::action('FamiliaController@show',$fa->idFamilia)}}"><button class="btn btn-info"><i class="glyphicon glyphicon-th-list"></i> Editar Trabajador</button></a>
+          </td> 
 				@endforeach
+
                                 </table>
 
                             </div>

@@ -30,6 +30,7 @@ Route::group(['middleware' =>['auth','is_director']], function (){
  
 Route::PATCH('seguridad/usuario/editPersona/{idPersona}','UsuarioController@updatePersona'); 
 Route::PATCH('seguridad/usuario/editUsuario/{idUsuario}','UsuarioController@updateUsuario');
+
 // SE DEBE DEJAR EL RESOURCE AL FINAL O PUEDE OCURRIR UN ERROR AL NO ENCONTRAR EL METODO *MUY IMPORTANTE*
 
 Route::resource('seguridad/usuario','UsuarioController');
@@ -48,8 +49,9 @@ Route::resource('reporte/asistencia','RepoAsistenciaController');
 
 
     Route::group(['middleware' =>['auth','is_operario']], function (){
- 
+    Route::PATCH('evaluacion/resultado/{idFamilia}','FamiliaController@show');
     Route::resource('/home', 'HomeController');
+    Route::resource('evaluacion/resultado','FamiliaController');
     Route::resource('/Listar-Familia','FamiliaController');
     Route::resource('Familia','NuevaFamiliaController');
     Route::resource('/Carnet-Familiar','CarnetFammiliarController');

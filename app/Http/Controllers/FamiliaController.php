@@ -20,16 +20,7 @@ class FamiliaController extends Controller
      */
     public function index( Request $request)
     {
-        if ($request)
-        {
-            $query=trim($request->get('searchText'));
-            $familia=DB::table('familia')
-                ->where('Nom_fam','LIKE','%', $query,'%')
-                ->orderBy('idFamilia','desc')
-                ->paginate(6);
-            return view('Familia.Listar-Familia',["familia"=>$familia,"searchText"=>$query]);
-        }
-        //return view('Familia/Listar-Familia');
+        return view('Familia/cards');
     }
     /**
      * Show the form for creating a new resource.
@@ -137,14 +128,18 @@ class FamiliaController extends Controller
      }
     public function show($id)
     {
-        //
+        $family=DB::table('familia as f')
+        ->join('madre as m','m.idMadre','=','f.Madre_idMadre')
+        ->join('nino as n','m.idMadre','=','n.Madre_idMadre')
+        ->select('f.Codigo_fam','f.Nom_fam','f.Respons_fam','f.Tipo_Familia_idTipo_Familia',
+        'm.Madre_nombre','m.Madre_apel_pa','m.Madre_fecha','m.distrito_idDistrito',
+        'n.Nino_nombre','n.Nino_apelpa','n.Nino_fecha','n.Nino_HC')
+        ->where('f.idFamilia','=',$id)
+        ->first();
+
+        return view ("evaluacion.resultado",["family"=>$family]);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit($id)
     {
         //
@@ -158,14 +153,9 @@ class FamiliaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //
@@ -173,4 +163,5 @@ class FamiliaController extends Controller
     public  function  listarfamilia(){
         //
     }
+
 }
