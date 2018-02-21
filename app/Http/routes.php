@@ -36,7 +36,7 @@ Route::resource('seguridad/usuario','UsuarioController');
 Route::resource('seguridad/HistorialClinico','HistorialClinicoController');
 //Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
 //Route::get('Sesiones/asistencia/{idAsistencia}/', 'ListarSesionesController@');
-
+Route::resource('reporte/asistencia','RepoAsistenciaController');
 
 
 ////////////////////////////////////////////
@@ -66,8 +66,10 @@ Route::PATCH('sesiones/asistencia/ReRegAsis/{idAsistencia}','SesionesController@
 Route::PATCH('sesiones/asistencia/EditAsis/{idAsistencia}','SesionesController@EditAsis');
 Route::resource('sesiones/asistencia','SesionesController');
 Route::POST('Familia/store','FamiliaController@store');
+
 Route::resource('seguridad/UserSafety','ProfileController');
 
 
  /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
  Route::resource('/Evaluar','EvaluarController');
+ Route::resource('evaluacion/','EvaluacionController');
