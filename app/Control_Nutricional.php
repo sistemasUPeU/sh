@@ -24,7 +24,7 @@ class Control_Nutricional extends Model
       'Talla',
       'HB_HTO',
       'Observacion',
-      'Paciente_idPaciente',
+      'Nino_idNino',
       
    ];
 

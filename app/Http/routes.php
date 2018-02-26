@@ -50,9 +50,10 @@ Route::resource('reporte/asistencia','RepoAsistenciaController');
 
     Route::group(['middleware' =>['auth','is_operario']], function (){
     Route::PATCH('evaluacion/resultado/{idFamilia}','FamiliaController@show');
+    Route::PATCH('evaluacion/generalinfon/{idMadre}','ninoController@show');
     Route::resource('/home', 'HomeController');
     Route::resource('evaluacion/resultado','FamiliaController');
-    Route::resource('/Listar-Familia','FamiliaController');
+    Route::resource('evaluacion/generalinfon','ninoController');
     Route::resource('Familia','NuevaFamiliaController');
     Route::resource('/Carnet-Familiar','CarnetFammiliarController');
     Route::resource('/Carnet-General','CarnetFammiliarController');

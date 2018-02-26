@@ -1,12 +1,4 @@
-@extends('layouts.app')
-
-@section('htmlheader_title')
-    Carnet-Familiar
-@endsection
-
-
-@section('main-content')
-    
+@extends('layouts.app') @section('htmlheader_title') Carnet-Familiar @endsection @section('main-content')
 <link rel="stylesheet" href="{{ URL::asset('css/page-style.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('css/cards-style.css') }}" />
 
@@ -14,7 +6,7 @@
     <article class="col-md-12">
         <!-- Modern - Bootstrap Cards -->
         <header>
-            <h2>Familia : {{$family->Nom_fam}}</h2> </header>
+            <h4>Familia : {{$family->Nom_fam}}</h4> </header>
         <!-- BLOG CARDS -->
         <div class="cards-1 section-gray">
             <div class="container">
@@ -23,13 +15,33 @@
                         <div class="card card-blog">
                             <div class="card-image">
                                 <a href="#"> <img class="img" src="{{ asset('img/3.png') }}">
-                                    <div class="card-caption"> Quisque a bibendum magna </div>
                                 </a>
                                 <div class="ripple-cont"></div>
                             </div>
                             <div class="table">
                                 <h6 class="category text-info">NIÑO (S)</h6>
-                                <p class="card-description"> Lorem ipsum dolor sit amet, consectetur adipis cingelit. Etiam lacinia elit et placerat finibus. Praesent justo metus, pharetra vel nibh sit amet, tincidunt posuere nulla. Vivamus odio antement, feugiat eget nisi sit amet, scelerisque dignissim velit antement. </p>
+                                <p class="card-description">
+                                    <dl class="dl-horizontal">
+                                        @foreach($ninos as $ni)
+                                        @if($family->idMadre == $ni->Madre_idMadre)  
+                                        <dt>Nombres:</dt>
+                                        <dd>{{ $ni->Nino_nombre}}</dd>
+                                        <dt>Historial Clinico:</dt>
+                                        <dd>{{ $ni->Nino_HC}}</dd>
+                                        <dt>DNI:</dt>
+                                        <dd>{{ $ni->Nino_DNI}}</dd>
+                                        <br>
+                                        <br>
+                                        @endif
+                                        @endforeach
+                                    </dl>
+                                </p>
+                                  <div class="ftr">
+                                    <div class="author">
+                                        <a href="{{URL::action('ninoController@show',$family->idMadre)}}"> <img src="{{ asset('img/greeen.png') }}" alt="..." class="avatar img-raised"> <span>Mas información</span> </a>
+                                    </div>
+                                    <div class="stats"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -40,16 +52,9 @@
                                             <i class="fa fa-globe "></i> ESTADO
                                         </h6>
                                 <h4 class="card-caption">
-                                            <a href="#">Vivamus odio ante, feugiat eget nisi sit amet, dignissim velit.</a>
+                                            <a href="#">Activo</a>
                                         </h4>
                                 <div class="ftr">
-                                    <div class="author">
-                                        <a href="#"> <img src="images/avatar2.png" alt="" class="avatar img-raised"> <span>Patrick Wood</span>
-                                            <div class="ripple-cont">
-                                                <div class="ripple ripple-on ripple-out" style="left: 574px; top: 364px; background-color: rgb(60, 72, 88); transform: scale(11.875);"></div>
-                                            </div>
-                                        </a>
-                                    </div>
                                     <div class="stats"> <i class="fa fa-heart"></i> 342 &nbsp; <i class="fa fa-comment"></i> 45 </div>
                                 </div>
                             </div>
@@ -62,16 +67,48 @@
                             <div class="table">
                                 <h6 class="category text-success"><i class="fa fa-university"></i> FAMILIA</h6>
                                 <h4 class="card-caption">
-                            <a href="#">Vivamus odio ante, feugiat eget nisi sit amet, dignissim velit</a>
+                            <a href="#">Codigo: {{$family->Codigo_fam}}</a>
                             </h4>
-                                <p class="card-description"> Lorem ipsum dolor sit amet, consectetur adipis cingelit. Etiam lacinia elit et placerat finibus.</p>
-                                <div class="ftr">
+                                <p class="card-description"> 
+                                       <dl class="dl-horizontal">
+                                        <dt>Responsable: </dt>
+                                        <dd>{{ $family->Respons_fam}}</dd>
+
+                                        <dt>Tipo de Familia:</dt>
+                                        @if($family->Tipo_Familia_idTipo_Familia==1)
+                                        <dd>Nueva</dd>
+                                        @endif
+                                         @if($family->Tipo_Familia_idTipo_Familia==2)
+                                        <dd>Reingresante</dd>
+                                        @endif
+                                         @if($family->Tipo_Familia_idTipo_Familia==3)
+                                        <dd>Continuadora</dd>
+                                        @endif
+
+
+                                        <dt>Modo de Captación:</dt>
+                                        @if($family->Modo_Captacion_idModo_Captacion==1)
+                                        <dd>Visita Domiciliaria</dd>
+                                        @endif
+                                         @if($family->Modo_Captacion_idModo_Captacion==2)
+                                        <dd>Hospital</dd>
+                                        @endif
+                                         @if($family->Modo_Captacion_idModo_Captacion==3)
+                                        <dd>Campaña de Salud</dd>
+                                        @endif
+                                        @if($family->Modo_Captacion_idModo_Captacion==4)
+                                        <dd>Otros</dd>
+                                        @endif
+                                        <br>
+      
+                      
+                                    </dl>
+                                </p>
+                                 <div class="ftr">
                                     <div class="author">
-                                        <a href="#"> <img src="images/avatar3.png" alt="..." class="avatar img-raised"> <span>
-                                            {{$family->Nom_fam}}
-                                        </span> </a>
+                                        <a href=""> <img src="{{ asset('img/greeen.png') }}" alt="..." class="avatar img-raised"> <span>Mas información</span> </a>
                                     </div>
-                                    <div class="stats"> <i class="fa fa-clock-o"></i> 10 min </div>
+                                    <div class="stats"></div>
                                 </div>
                             </div>
                         </div>
@@ -103,4 +140,3 @@
         </div>
 </body>
 @endsection
-

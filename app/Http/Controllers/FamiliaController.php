@@ -130,14 +130,14 @@ class FamiliaController extends Controller
     {
         $family=DB::table('familia as f')
         ->join('madre as m','m.idMadre','=','f.Madre_idMadre')
-        ->join('nino as n','m.idMadre','=','n.Madre_idMadre')
-        ->select('f.Codigo_fam','f.Nom_fam','f.Respons_fam','f.Tipo_Familia_idTipo_Familia',
-        'm.Madre_nombre','m.Madre_apel_pa','m.Madre_fecha','m.distrito_idDistrito',
-        'n.Nino_nombre','n.Nino_apelpa','n.Nino_fecha','n.Nino_HC')
+        ->select('f.Codigo_fam','f.Nom_fam','f.Respons_fam','f.Tipo_Familia_idTipo_Familia','m.idMadre','f.Modo_Captacion_idModo_Captacion',
+        'm.Madre_nombre','m.Madre_apel_pa','m.Madre_fecha','m.distrito_idDistrito')
         ->where('f.idFamilia','=',$id)
         ->first();
 
-        return view ("evaluacion.resultado",["family"=>$family]);
+        $ninos=DB::table('nino')->get();  
+        
+        return view ("evaluacion.resultado",["family"=>$family,"ninos"=>$ninos]);
     }
   
     public function edit($id)
@@ -160,7 +160,7 @@ class FamiliaController extends Controller
     {
         //
     }
-    public  function  listarfamilia(){
+    public function listarfamilia($id){
         //
     }
 

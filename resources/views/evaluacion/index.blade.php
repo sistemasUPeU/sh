@@ -40,7 +40,7 @@
                     @endforeach
 				</tr>
 			   <td>
-            <a href="{{URL::action('FamiliaController@show',$fa->idFamilia)}}"><button class="btn btn-info"><i class="glyphicon glyphicon-th-list"></i> Editar Trabajador</button></a>
+            <a href="{{URL::action('FamiliaController@show',$fa->idFamilia)}}"><button class="btn btn-info"><i class="glyphicon glyphicon-th-list"></i> Ver</button></a>
           </td> 
 				@endforeach
 
