@@ -12,7 +12,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="" data-target="#modal-logout" data-toggle="modal" style="border: none;"><i class="ti-power-off" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesion"></i> salir</a> </li>
+                            <a href="" data-target="#modal-logout" data-toggle="modal" style="border: none;"><i class="ti-power-off" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesion"></i> Salir</a> </li>
                              </ul>
                 </div>
             </div>

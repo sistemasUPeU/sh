@@ -59,7 +59,7 @@ CARDS
 .card {
     display: inline-block;
     position: relative;
-    width: 100%;
+    width: 85%;
     margin-bottom: 30px;
     border-radius: 6px;
     color: rgba(0, 0, 0, 0.87);
