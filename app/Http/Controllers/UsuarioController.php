@@ -147,7 +147,6 @@ class UsuarioController extends Controller
         $persona->Direccion=$request->get('Direccion');
         $persona->Telefono=$request->get('Telefono');
         $persona->update();
-        dd($persona);
         return Redirect::to('seguridad/usuario/'.$id);
     }
 
