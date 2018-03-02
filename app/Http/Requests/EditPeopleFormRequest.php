@@ -4,7 +4,7 @@ namespace sisHospital\Http\Requests;
 
 use sisHospital\Http\Requests\Request;
 
-class EditPersonaFormRequest extends Request
+class EditPeopleFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -2,7 +2,7 @@
      role="dialog" tabindex="-1" id="modal-editPersona-{{$trabajadores->idPersona}}">
 
 
-    {{Form::Open(array('action'=>array('UsuarioController@updatePersona',$trabajadores->idPersona),'method'=>'patch'))}}
+    {{Form::Open(array('action'=>array('ProfileController@updatePeople',$trabajadores->idPersona),'method'=>'patch'))}}
 
 
     <div class="modal-dialog">
@@ -18,30 +18,13 @@
             <div class="modal-body">
 
                 <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label>DNI</label>
-                            <input type="text" class="form-control border-input" name="DNI"
-                                   value="{{$trabajadores->DNI}}">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label>Nombre</label>
                             <input type="text" class="form-control border-input" name="Nom_per"
                                    value="{{$trabajadores->Nom_per}}">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Telefono</label>
-                            <input type="text" class="form-control border-input" name="Telefono"
-                                   value="{{$trabajadores->Telefono}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Apellido Paterno</label>
@@ -54,6 +37,23 @@
                             <label>Apellido Materno</label>
                             <input type="text" class="form-control border-input" name="Apel_mat"
                                    value="{{$trabajadores->Apel_mat}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>DNI</label>
+                            <input type="text" class="form-control border-input" name="DNI"
+                                   value="{{$trabajadores->DNI}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control border-input" name="Telefono"
+                                   value="{{$trabajadores->Telefono}}">
                         </div>
                     </div>
                 </div>

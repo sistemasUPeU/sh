@@ -7,7 +7,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                     <a class="navbar-brand" href="#">Usuario conectado : {{ Auth::user()->Nom_user}}</a>
+                     <a class="navbar-brand" href="#">Usuario conectado</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@ role="dialog" tabindex="-1" id="modal-logout">
                 <h4 class="modal-title text-primary">Estas seguro que deseas salir de tu cuenta?</h4>
             </div>
             <div class="modal-body">
-                <p class="text-danger">{{ Auth::user()->Nom_user}} estas a punto de cerrar sesion <i class="ti-face-sad"></i></p>
+                <p class="text-danger">Estas a punto de cerrar sesion <i class="ti-face-sad"></i></p>
             </div>
 
 
