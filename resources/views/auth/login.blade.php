@@ -92,8 +92,6 @@
          @include('layouts.partials.scripts_auth')
     </body>
    
-
-<<<<<<< HEAD
 @section('content')
 
 <body class="fondo-login">

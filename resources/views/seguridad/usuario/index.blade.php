@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @extends ('layouts.app')
 
 @section('main-content')
@@ -75,7 +74,7 @@
 
 
 
-<<<<<<< HEAD
+
                             @foreach ($personas as $per)
                                 <tr>
                                     <td>{{ $per->Nom_per.' '.$per->Apel_pater.' '.$per->Apel_mat}}</td>
@@ -107,7 +106,7 @@
 
                     </div>
                     {{$personas->render()}}
-=======
+
 @extends ('layouts.app') @section('main-content')
 <div class="row">
     <div class="col-md-12">
@@ -124,7 +123,6 @@
                             <button class="btn btn-success"><i class=" glyphicon glyphicon-plus"></i> Nuevo</button>
                         </a>
                     </div>
->>>>>>> 680cf0e3211140e546d15d58a1361f26e4510e2f
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
@@ -160,22 +158,15 @@
                         </tr>
                         @endforeach
                     </table>
-=======
->>>>>>> parent of 798c717... Cambio de contraseña
                 </div>
                 {{$personas->render()}}
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 
         </div>
     </div>
-=======
+
         </div>
     </div>
 </div>
->>>>>>> 680cf0e3211140e546d15d58a1361f26e4510e2f
-=======
->>>>>>> parent of 798c717... Cambio de contraseña
+
 @endsection

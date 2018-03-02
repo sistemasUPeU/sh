@@ -8,7 +8,6 @@ use sisHospital\Http\Requests;
 
 class ProfileController extends Controller
 {
-<<<<<<< HEAD
 
     public function updatePassword(Request $request)
     {
@@ -24,8 +23,6 @@ class ProfileController extends Controller
         }
     }
 
-=======
->>>>>>> parent of 798c717... Cambio de contraseña
     public function index(Request $request)
     {
         return view('seguridad.UserSafety.Profile');
