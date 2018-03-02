@@ -21,13 +21,12 @@ class ProfileController extends Controller
        $newPassword = $request->input('newPassword');
 
         if (!Hash::check($oldPassword, Auth::User()->password)) {
-            return back()->with('msg','Ups!! Contraseña no cambiada. Ingrese Correctamente su contraseña actual...');  //when user enter wrong password as current password
+            return back()->with('msg','Ups!! Contraseña no cambiada. Ingrese Correctamente su contraseña actual...');
 
         } else {
-            $request->user()->fill(['password' => Hash::make($newPassword)])->save(); //updating password into user table
+            $request->user()->fill(['password' => Hash::make($newPassword)])->save();
             return back()->with('msg','Tu contraseña se actulizo correctamente...');
         }
-        // echo 'here update query for password';
     }
 
     public function index(Request $request)
