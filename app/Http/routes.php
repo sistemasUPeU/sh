@@ -28,6 +28,10 @@ Route::group(['middleware' =>['auth','is_director']], function (){
 /*MODULO DE TRABAJADORES --HANS--*/
 Route::PATCH('seguridad/usuario/editPersona/{idPersona}','UsuarioController@updatePersona'); 
 Route::PATCH('seguridad/usuario/editUsuario/{idUsuario}','UsuarioController@updateUsuario');
+
+
+// SE DEBE DEJAR EL RESOURCE AL FINAL O PUEDE OCURRIR UN ERROR AL NO ENCONTRAR EL METODO *MUY IMPORTANTE*
+
 Route::resource('seguridad/usuario','UsuarioController');
 
 
@@ -52,8 +56,15 @@ Route::resource('reporte','ReporteController');
 
 
     Route::group(['middleware' =>['auth','is_operario']], function (){
- 
+    Route::PATCH('evaluacion/resultado/{idFamilia}','FamiliaController@show');
+    Route::PATCH('evaluacion/generalinfon/{idMadre}','ninoController@show');
     Route::resource('/home', 'HomeController');
+
+    Route::resource('evaluacion/resultado','FamiliaController');
+    Route::resource('evaluacion/generalinfon','ninoController');
+    Route::resource('Familia','NuevaFamiliaController');
+    Route::resource('/Carnet-Familiar','CarnetFammiliarController');
+    Route::resource('/Carnet-General','CarnetFammiliarController');
 
 });
 
@@ -80,6 +91,26 @@ Route::resource('sesiones/asistencia','SesionesController');
 
 
 Route::POST('Familia/store','FamiliaController@store');
+
+Route::POST('Familia/store','FamiliaController@store');
+
+
+
+Route::resource('seguridad/UserSafety','ProfileController');
+
+
+Route::PATCH('seguridad/UserSafety/editPass/','ProfileController@updatePassword');
+Route::PATCH('seguridad/usuario/editUser/{idPersona}','ProfileController@updatePeople');
+Route::resource('seguridad/UserSafety','ProfileController');
+
+
+/*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
+ Route::resource('/Evaluar','EvaluarController');
+
+ /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
+ Route::resource('/Evaluar','EvaluarController');
+ Route::resource('evaluacion/','EvaluacionController');
+
 Route::resource('seguridad/UserSafety','ProfileController');
 
 
