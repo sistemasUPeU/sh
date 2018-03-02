@@ -24,16 +24,16 @@ class EditPersonaFormRequest extends Request
     public function rules()
     {
         return [
-
-            'Apel_pater'=>'required|max:45',
-            'Apel_mat'=>'required|max:45',
-            'Nom_per'=>'required|max:45',
-            'DNI'=>'required|max:11',
-            'Fecha_nac'=>'required',
-            'Sexo'=>'required',
-            'Distrito_idDistrito'=>'required',
-            'Direccion'=>'required',
-            'Telefono'=>'required|max:11',
+            
+          'Apel_pater'=>'required|max:45',
+          'Apel_mat'=>'required|max:45',
+          'Nom_per'=>'required|max:45',
+          'DNI'=>'required|max:11',
+          'Fecha_nac'=>'required',
+          'Sexo'=>'required',
+          'Distrito_idDistrito'=>'required',
+          'Direccion'=>'required',
+          'Telefono'=>'required|max:11',
         ];
     }
 }

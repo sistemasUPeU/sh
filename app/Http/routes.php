@@ -69,6 +69,7 @@ Route::PATCH('sesiones/asistencia/ReRegAsis/{idAsistencia}','SesionesController@
 Route::PATCH('sesiones/asistencia/EditAsis/{idAsistencia}','SesionesController@EditAsis');
 Route::resource('sesiones/asistencia','SesionesController');
 Route::POST('Familia/store','FamiliaController@store');
+<<<<<<< HEAD
 
 
 
@@ -87,3 +88,10 @@ Route::resource('seguridad/UserSafety','ProfileController');
  Route::resource('/Evaluar','EvaluarController');
  Route::resource('evaluacion/','EvaluacionController');
 
+=======
+Route::resource('seguridad/UserSafety','ProfileController');
+
+
+ /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
+ Route::resource('/Evaluar','EvaluarController');
+>>>>>>> parent of 798c717... Cambio de contraseña
