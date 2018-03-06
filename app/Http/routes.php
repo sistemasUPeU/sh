@@ -111,6 +111,8 @@ Route::resource('seguridad/UserSafety','ProfileController');
  Route::resource('/Evaluar','EvaluarController');
  Route::resource('evaluacion/','EvaluacionController');
 
+Route::POST('seguridad/UserSafety/editPass/','ProfileController@updatePassword');
+Route::PATCH('seguridad/usuario/editUser/{idPersona}','ProfileController@updatePeople');
 Route::resource('seguridad/UserSafety','ProfileController');
 
 
