@@ -1,6 +1,4 @@
-@extends('layouts.app') @section('htmlheader_title') Carnet-Familiar @endsection @section('main-content')
-<link rel="stylesheet" href="{{ URL::asset('css/page-style.css') }}" />
-<link rel="stylesheet" href="{{ URL::asset('css/cards-style.css') }}" />
+@extends ('layouts.app') @section('main-content')
 
 <body>
     <article class="col-md-12">
