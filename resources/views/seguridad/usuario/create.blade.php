@@ -211,6 +211,13 @@
                                 <input id="password-confirm" type="password" class="form-control border-input"
                                        name="password_confirmation">
 
+                    <!--       
+
+                            <div class="col-md-3">
+                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                     <label >Confirmar Contraseña</label>
+                                <input id="password-confirm" type="password" class="form-control border-input" name="password_confirmation">
+
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -218,6 +225,18 @@
                                 @endif
                             </div>
                         </div>
+
+
+-->
+                                   
+                                    </div>
+                                    
+                                <div class="row">  
+                                <div class="content">                
+                             <div class="form-group">
+                <button class="btn btn-primary pull-right" type="submit">Guardar</button>
+                <button class="btn btn-danger pull-left" type="reset">Cancelar</button>
+            </div></div></div>
 
                     </div>
 

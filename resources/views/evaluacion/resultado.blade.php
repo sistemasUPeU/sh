@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ URL::asset('css/page-style.css') }}" xmlns="http://www.w3.org/1999/html"/>
 <link rel="stylesheet" href="{{ URL::asset('css/cards-style.css') }}" />
 
+@extends ('layouts.app') @section('main-content')
+
 <body>
     <article class="col-md-12">
         <!-- Modern - Bootstrap Cards -->

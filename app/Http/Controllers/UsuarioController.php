@@ -49,8 +49,9 @@ class UsuarioController extends Controller
           ->join('distrito as d','p.Distrito_idDistrito','=','d.idDistrito')
           ->select('p.idPersona','p.Nom_per','p.Apel_pater','p.Apel_mat','p.Telefono','p.DNI','r.Nom_rol','u.Nom_user','u.Estado_user','d.Nom_Dist','u.idUsuario')
           ->where('u.Nom_user','LIKE','%'.$query.'%')
+          ->orwhere('p.DNI','LIKE','%'.$query.'%')
             ->orderBy('p.idPersona','desc')
-            ->paginate(7);
+            ->paginate(5);
             return view('seguridad.usuario.index',["personas"=>$personas,"searchText"=>$query]);
         }
     }
@@ -98,7 +99,7 @@ class UsuarioController extends Controller
            {
         DB::rollback();
            }
-        return Redirect::to('seguridad/usuario');
+        return Redirect::to('seguridad/usuario')->with('msg','La cuenta se creo correctamente...');
     }
 
 

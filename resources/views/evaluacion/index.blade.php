@@ -45,9 +45,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ URL::asset('js/jquery-2.2.4.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/bootstrap-table.js') }}"></script>
 
 
 <script type="text/javascript">

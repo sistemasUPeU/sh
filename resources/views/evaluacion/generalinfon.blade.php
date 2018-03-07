@@ -1,4 +1,4 @@
-@extends('layouts.app') @section('htmlheader_title') Carnet-Familiar @endsection @section('main-content')
+@extends('layouts.app') @section('main-content')
 <link rel="stylesheet" href="{{ URL::asset('css/page-style.css') }}" />
 <link rel="stylesheet" href="{{ URL::asset('css/cards-style.css') }}" /> @foreach ($madre as $ma)
 
