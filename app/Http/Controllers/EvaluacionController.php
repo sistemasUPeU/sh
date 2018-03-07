@@ -3,7 +3,7 @@
 namespace sisHospital\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use sisHospital\madre;
 use sisHospital\Http\Requests;
 use DB;
 class EvaluacionController extends Controller
@@ -15,7 +15,7 @@ class EvaluacionController extends Controller
           $query=trim($request->get('searchText'));
           $familias=DB::table('familia as fa')
           ->join('madre as ma','fa.Madre_idMadre','=','ma.idMadre')
-          ->select('fa.idFamilia','fa.Codigo_fam','fa.Nom_fam','ma.idMadre','ma.Madre_nombre','ma.Madre_apel_ma','ma.Madre_apel_pa','ma.Madre_DNI')
+          ->select('fa.idFamilia','fa.Codigo_fam','fa.Nom_fam','ma.idMadre','ma.Madre_nombre','ma.Madre_apel_pa','ma.Madre_DNI','ma.Madre_apel_ma')
           ->where('fa.Nom_fam','LIKE','%'.$query.'%')
           ->orwhere('ma.Madre_nombre','LIKE','%'.$query.'%')
           ->orwhere('ma.Madre_DNI','LIKE','%'.$query.'%')

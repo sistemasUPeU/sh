@@ -1,3 +1,7 @@
+@extends('layouts.app') @section('htmlheader_title') Carnet-Familiar @endsection @section('main-content')
+<link rel="stylesheet" href="{{ URL::asset('css/page-style.css') }}" xmlns="http://www.w3.org/1999/html"/>
+<link rel="stylesheet" href="{{ URL::asset('css/cards-style.css') }}" />
+
 @extends ('layouts.app') @section('main-content')
 
 <body>
@@ -122,13 +126,22 @@
                                             <i class="fa fa-soundcloud"></i> MADRE
                                         </h6>
                                 <h4 class="card-caption">
-                                <a href="#">Vivamus odio ante, feugiat eget nisi sit amet, dignissim velit</a>
+                                <a href="{{action('MadreController@show',$family->idMadre)}}"></a>
                             </h4>
                                 <div class="ftr">
                                     <div class="author">
-                                        <a href="#"> <img src="{{ asset('img/avatar4.png') }}" alt="..." class="avatar img-raised"> <span>{{$family->Madre_apel_pa}}, {{$family->Madre_nombre}}</span> </a>
+
+                                      </div>
+                                    <strong><td><label style="color: black ;  font-family: fantasy; "> Nombre: </label> {{$family->Madre_nombre}}</td><br>
+
+                                        <td><label style="color: black ;  font-family: fantasy; "> Apellido:</label> {{$family->Madre_apel_pa}}</td><br></strong>
+                                 <div class="stats"> <i class="fa fa-clock-o"></i> 15 min </div>
+                                </div>
+                                <div class="ftr">
+                                    <div class="author">
+                                        <a href="{{action('MadreController@show',$family->idMadre)}}"> <img src="{{ asset('img/greeen.png') }}" alt="..." class="avatar img-raised"> <span>Mas información</span> </a>
                                     </div>
-                                    <div class="stats"> <i class="fa fa-clock-o"></i> 15 min </div>
+                                    <div class="stats"></div>
                                 </div>
                             </div>
                         </div>
@@ -137,4 +150,5 @@
             </div>
         </div>
 </body>
+
 @endsection
