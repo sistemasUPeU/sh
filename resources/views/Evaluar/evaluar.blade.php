@@ -26,54 +26,56 @@
 </div>-->
 
 
-<div class="container" style= "background-color: white;">
+
+
 
 <div class="row">
-	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered table-condensed table-hover">
-				<thead>
-          
-					<th class="text-center">Familia</th>
-          <th class="text-center">Responsable</th>
-          <th class="text-center">Tipo de Familia</th>
-          <th class="text-center">Estado</th>
-					<th class="text-center">Evaluacion</th>
-
-
-				</thead>
  
+		
+			
+      <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+  <div class="card-header" style="display: block; margin:auto; max-width: 92%; max-height: 80%;"><img src="/img/Evaluar/familia.jpeg" style="margin-top: 10%;"></div>
+  <div class="card-body" style="text-align: center;">
+    
+    <h4 style="font-family: 'Tahoma', fantasy">Familia</h4>
+    <p class="card-text">Nombre Familia causa</p>
 
-               @foreach ($evaluaciones as $eval)
-				<tr>
+    <h4 style="font-family: 'Tahoma', fantasy">Responsable</h4>
+    <p class="card-text">Responsable familia causa</p>
 
-					<td class="text-center">{{ $eval->Nom_fam}}</td>
-					<td class="text-center">{{ $eval->Respons_fam}}</td> 
-          <td class="text-center">{{ $eval->Tipo_Familia_idTipo_Familia}}</td>
-          
-          <?php if ($eval->Estado_Eval == '1'): ?>
-          <td class="text-center"><span class="label label-default">Aprobada</span></td>	
-          <?php else: ?>
-          <td class="text-center"><span class="label label-danger">Falta</span></td>
-          <?php endif ?>		
-                    
-          <td class="text-center"><a data-toggle="modal" data-target="#modaleval" href="#" class="label label-success"><i class="fa fa-list" aria-hidden="true"></i></a></td>
+    <h4 style="font-family: 'Tahoma', fantasy">Tipo de Familia</h4>
+    <p class="card-text">Tipo de familia</p>
+  </div>
 
-				</tr>		
+</div>
+      <div class="card text-white bg-primary mb-3"  style="max-width: 50rem; float: right;">
+  <div class="card-header" style="display: block; margin:auto; max-width: 92%; max-height: 80%;"><img src="/img/Evaluar/evalua.png" style="margin-top: 10%;"></div>
+  <div class="card-body" style="text-align: center;">
+    
+    <h4 style="font-family: 'Tahoma', fantasy">Estado</h4>
+    <p class="card-text">Nombre Familia causa</p>
 
-				        @endforeach
+    <h4 style="font-family: 'Tahoma', fantasy">Abandono</h4>
+    <p class="card-text">Responsable familia causa</p>
 
+    <h4 style="font-family: 'Tahoma', fantasy">Evaluación</h4>
+    <a data-toggle="modal" data-target="#modaleval" href="#" class="label label-success"><i class="fa fa-list" aria-hidden="true"></i></a>
 
-			</table>
-      
-		</div>
+  </div>
+  
+
+</div>
+
+		
 
 <!-- la paginacion -->
-		{{$evaluaciones->render()}}
-	</div>
+		
+	
 
 </div>
 </div>
+<!--cards-->
+
 
 <!--Modal Evaluacion-->
 
@@ -228,6 +230,8 @@
       
     </div>
   </div>
+  
+  
 
 
 

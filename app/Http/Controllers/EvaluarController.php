@@ -24,7 +24,7 @@ class EvaluarController extends Controller
           $evaluaciones=DB::table('familia as f')
           ->join('programa as p','f.Programa_idPrograma','=','p.idPrograma')
           ->join('evaluacion as e','e.Familia_idFamilia','=','f.idFamilia')
-          ->select('f.Nom_fam','f.Respons_fam', 'e.idEvaluacion', 'f.Tipo_Familia_idTipo_Familia','e.Estado_Eval')
+          ->select('f.Nom_fam','f.Respons_fam', 'e.idEvaluacion', 'f.Tipo_Familia_idTipo_Familia','e.Estado_Eval','e.Abandono')
           ->where('f.Nom_fam','LIKE','%'.$query.'%')
             ->orderBy('f.Codigo_fam','desc')
             ->paginate(7);

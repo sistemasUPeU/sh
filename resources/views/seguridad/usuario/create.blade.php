@@ -225,7 +225,7 @@
 
 
 
-                           
+                    <!--       
 
                             <div class="col-md-3">
                                 <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
@@ -239,6 +239,9 @@
                                 @endif
                             </div>
                         </div>
+
+
+-->
                                    
                                     </div>
                                     

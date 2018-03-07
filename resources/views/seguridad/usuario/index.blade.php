@@ -14,7 +14,16 @@
                             @include('seguridad.usuario.search')
                         </div>
                     </div>
-
+                    <div class="col-md-pull-12">
+        @if(session('msg'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p class="text-center lead">{{session('msg')}}</p>
+            </div>
+        @endif
+    </div>
 
                     <div class="row">
                         <div class="col-md-2 col-lg-2">
