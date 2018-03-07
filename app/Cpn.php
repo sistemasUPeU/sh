@@ -20,7 +20,7 @@ class Cpn extends Model
    protected $fillable = [
       'Fecha_CPN',
       'Responsable_CPN',
-      'Paciente_idPaciente',
+      'Madre_idMadre',
       
    ];
 

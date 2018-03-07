@@ -76,3 +76,11 @@ Route::resource('seguridad/UserSafety','ProfileController');
  /*Route::resource('/ListarEvaluacion', 'EvaluacionController');*/
  Route::resource('/Evaluar','EvaluarController');
  Route::resource('evaluacion/','EvaluacionController');
+  /*lsitar madre*/
+
+Route::PATCH('evaluacion/madre/cpn/{idCPN}','MadreController@updatecpn');
+/*raro esto*/
+Route::GET('evaluacion/madre/index/','MadreController@store');
+Route::resource('evaluacion/madre','MadreController');
+
+
