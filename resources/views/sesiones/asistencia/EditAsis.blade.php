@@ -13,7 +13,7 @@ role="dialog" tabindex="-1" id="modal-EditAsis-{{$au->idFamilia}}" style="positi
                 aria-label="Close">
                      <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Editar Asistencia {{$asis->idAsistencia}}</h4>
+                <h4 class="modal-title">Editar Asistencia</h4>
             </div>
 
 <div class="modal-body">

@@ -20,7 +20,7 @@ role="dialog" tabindex="-1" id="modal-ReRegAsis-{{$au->idFamilia}}" style="posit
 <input type="text" name="Familia_idFamilia" value="{{$au->idFamilia}}" hidden>
           <input type="text" name="Fecha_idFecha"  value="{{$fechas->idFecha}}" hidden>
                                     <div class="row">
-               <label class="col-md-12">Estas seguro de marcar como <b style="color: blue">Asistencia</b> a la familia <b style="color: black">{{$au->Nom_fam}}</b> ?</label>
+               <label class="col-md-10">Estas seguro de marcar como <b style="color: blue">Asistencia</b> a la familia <b style="color: black">{{$au->Nom_fam}}</b> ?</label>
                                         
                                          </div>
 

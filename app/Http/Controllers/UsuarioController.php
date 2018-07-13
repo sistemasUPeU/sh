@@ -32,12 +32,6 @@ class UsuarioController extends Controller
     } 
 
 
-
-
-
-
-
-
  public function index(Request $request)
     {
         if ($request)

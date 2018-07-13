@@ -3,7 +3,7 @@
 @section('main-content')
 
 
-
+    
     <div class="row">
         <div class="col-lg-4 col-md-5">
             <div class="card">
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             <div class="form-group">
                                 <label>Direccion</label>
                                 <input type="text" class="form-control" value="{{$trabajadores->Direccion}}" disabled>
